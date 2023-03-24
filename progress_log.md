@@ -11,3 +11,7 @@
 ## Day 3
 
 * Created shop-layout with template applied. Applied to the index in shops views
+
+## Day 4
+
+* Adjusted the shop index view. Initiated login view

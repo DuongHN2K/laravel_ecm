@@ -14,14 +14,12 @@
 </head>
 <body>
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#!">Site logo</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <a class="navbar-brand" href="/home">Laracon</a>
+            <div class="d-flex dropdown ps-10 pe-10">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Về chúng tôi</a></li>
+                    <!--<li class="nav-item"><a class="nav-link" href="#!">Về chúng tôi</a></li>-->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Danh mục</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -32,17 +30,41 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex form-inline my-2 my-lg-0">
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <input class="form-control form-control-sm input-sm mr-2" type="search" placeholder="Tìm sản phẩm" aria-label="Search">
-                    <button class="btn btn-info btn-sm my-3 my-sm-0" type="submit">Tìm kiếm</button>
-                </form>
-                <form class="d-flex">
-                    <button class="btn btn-outline-light" type="submit">
-                        <i class="bi-cart-fill me-1"></i>
-                        Cart
-                        <span class="badge bg-danger text-white ms-1 rounded-pill">0</span>
+                    <button class="btn btn-dark my-3 my-sm-0" type="submit">
+                        <i class="bi bi-search"></i>
                     </button>
                 </form>
+                <div class="d-flex dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/cart" class="dropdown-item">
+                                <i class="bi-cart-fill me-1"></i>
+                                Giỏ hàng
+                                <span class="badge bg-danger text-white ms-1 rounded-pill">0</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/register" class="dropdown-item">
+                                <i class="bi bi-r-circle"></i>
+                                Đăng ký
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/login" class="dropdown-item">
+                                <i class="bi bi-box-arrow-in-right"></i>
+                                Đăng nhập
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
