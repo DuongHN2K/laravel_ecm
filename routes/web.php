@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,11 @@ use App\Http\Controllers\ShopController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Show Shop Index page
+Route::get('/', [ShopController::class, 'index']);
 
-Route::get('/laracon', [ShopController::class, 'index']);
+// Show User Login form
+Route::get('/login', [UserController::class, 'login'])->name('login');
+
+// Show User Register form
+Route::get('/register', [UserController::class, 'register']);

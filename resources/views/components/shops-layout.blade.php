@@ -16,7 +16,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="/home">Laracon</a>
+            <a class="navbar-brand" href="/">Laracon</a>
             <div class="d-flex dropdown ps-10 pe-10">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <!--<li class="nav-item"><a class="nav-link" href="#!">Về chúng tôi</a></li>-->
