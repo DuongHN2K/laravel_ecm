@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
-            $table->string('name');
+            $table->foreignId('brand_id')->constrained('brands')->onDelete('cascade');
+            $table->string('product_name');
             $table->string('SKU');
             $table->longText('description');
             $table->string('images');
             $table->integer('stock_quantity');
             $table->decimal('price');
-            $table->foreignId('discount_id')->constrained('discounts')->onDelete('cascade');
+            $table->foreignId('discount_id')->constrained('discounts');
             $table->timestamps();
             $table->timestamp('deleted_at');
         });
