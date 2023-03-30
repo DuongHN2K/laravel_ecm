@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->integer('user_type');
             $table->string('permissions');
-            $table->timestamp('last_login');
+            // $table->timestamp('last_login');
             $table->rememberToken();
             $table->timestamps();
         });

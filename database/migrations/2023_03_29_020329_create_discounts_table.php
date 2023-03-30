@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('end_date');
             $table->boolean('active');
             $table->timestamps();
-            $table->timestamp('deleted_at');
+            // $table->timestamp('deleted_at');
         });
     }
 

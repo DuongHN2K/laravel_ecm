@@ -23,7 +23,7 @@ return new class extends Migration
             $table->decimal('price');
             $table->foreignId('discount_id')->constrained('discounts');
             $table->timestamps();
-            $table->timestamp('deleted_at');
+            // $table->timestamp('deleted_at');
         });
     }
 

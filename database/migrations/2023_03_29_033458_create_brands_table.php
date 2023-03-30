@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('brand_name');
             $table->timestamps();
-            $table->timestamp('deleted_at');
+            // $table->timestamp('deleted_at');
         });
     }
 
