@@ -55,13 +55,13 @@
                 </div>
 
                 <!-- Checkbox -->
-            <div class="form-check d-flex justify-content-center mb-4">
-                <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
-                aria-describedby="registerCheckHelpText" />
-                <label class="form-check-label" for="registerCheck">
-                    Tôi đã đọc và đồng ý với các điều khoản áp dụng
-                </label>
-            </div>
+                <div class="form-check d-flex justify-content-center mb-4">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
+                    aria-describedby="registerCheckHelpText" />
+                    <label class="form-check-label" for="registerCheck">
+                        Tôi đã đọc và đồng ý với các điều khoản sử dụng
+                    </label>
+                </div>
         
                 <!-- Submit button -->
                 <div class="d-grid gap-2 py-2">
