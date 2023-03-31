@@ -10,24 +10,24 @@
             <form action="/users/authenticate" method="POST">
                 @csrf
                 <!-- Email input -->
-                <div class="form-outline mb-4 w-100">
-                    <label class="form-label" for="form2Example1">Email</label>
-                    <input type="email" id="form2Example1" class="form-control" value="{{old('email')}}"/>
-                    @error('email')
+                <div class="form-outline mb-2 w-100">
+                    <label class="form-label" for="loginName">Email hoặc SĐT</label>
+                    <input type="email" id="loginName" class="form-control" name="login_id" value="{{old('login_id')}}"/>
+                    @error('login_id')
                         <p class="text-danger text-sm-start mt-1">{{$message}}</p>
                     @enderror
                 </div>
     
                 <!-- Password input -->
-                <div class="form-outline mb-4 w-100">
-                    <label class="form-label" for="form2Example2">Mật khẩu</label>
-                    <input type="password" id="form2Example2" class="form-control" value="{{old('password')}}"/>
+                <div class="form-outline mb-3 w-100">
+                    <label class="form-label" for="loginPassword">Mật khẩu</label>
+                    <input type="password" id="loginPassword" class="form-control" name="password" value="{{old('password')}}"/>
                     @error('password')
                         <p class="text-danger text-sm-start mt-1">{{$message}}</p>
                     @enderror
                 </div>
 
-                <div class="col d-flex justify-content-end pb-3">
+                <div class="col d-flex justify-content-end pb-2">
                     <!-- Simple link -->
                     <a href="#!">Quên mật khẩu?</a>
                 </div>
