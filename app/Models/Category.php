@@ -9,6 +9,16 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $table = 'categories';
+
+    protected $fillable = [
+        'parent_id',
+        'name',
+        'navbar_status',
+        'status',
+        'created_by'
+    ];
+
     // Relationship to Product
     public function products()
     {

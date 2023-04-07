@@ -9,6 +9,15 @@ class Brand extends Model
 {
     use HasFactory;
 
+    protected $table = 'brands';
+
+    protected $fillable = [
+        'name',
+        'navbar_status',
+        'status',
+        'created_by'
+    ];
+
     // Relationship to Product
     public function products()
     {

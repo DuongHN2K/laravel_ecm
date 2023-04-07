@@ -33,11 +33,11 @@ class LoginController extends Controller
     {
         if(Auth::user()->user_type == '1') // 1 == Admin
         {
-            return redirect('/admin/dashboard')->with('status', 'Welcome to Admin dashboard');
+            return redirect('/admin/dashboard')->with('status', 'Chào bạn tới trang Admin');
         }
         elseif(Auth::user()->user_type == '0') // 0 == Client
         {
-            return redirect('/home')->with('status', 'Logged in successfully');
+            return redirect('/home')->with('status', 'Đăng nhập thành công');
         }
         else
         {
