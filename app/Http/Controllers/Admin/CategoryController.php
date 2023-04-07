@@ -18,7 +18,8 @@ class CategoryController extends Controller
 
     public function create()
     {
-        return view('admin.category.create');
+        $category = Category::where('status', '0')->get();
+        return view('admin.category.create', compact('category'));
     }
 
     public function store(CategoryFormRequest $request)
