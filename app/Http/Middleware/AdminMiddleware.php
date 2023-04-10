@@ -24,12 +24,12 @@ class AdminMiddleware
             }
             else
             {
-                return redirect('/home')->with('status', "You're not an Admin. Access denied!");
+                return redirect('/home')->with('status', "Bạn không phải Admin. Truy cập bị từ chối");
             }
         }
         else
         {
-            return redirect('/login')->with('status', "Please login first");
+            return redirect('/login')->with('status', "Vui lòng đăng nhập");
         }
     }
 }

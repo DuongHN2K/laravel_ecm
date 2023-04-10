@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->string('brand_name');
+            $table->string('name');
+            $table->tinyInteger('navbar_status')->default('0');
+            $table->tinyInteger('status')->default('0');
+            $table->integer('created_by');
             $table->timestamps();
             // $table->timestamp('deleted_at');
         });

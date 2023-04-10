@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('discounts', function (Blueprint $table) {
             $table->id();
-            $table->string('discount_name');
+            $table->string('name');
             $table->longText('description');
             $table->decimal('discount_rate');
             $table->date('start_date');
