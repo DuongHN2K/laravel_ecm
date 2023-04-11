@@ -8,18 +8,32 @@
         <div class="card-header">
             <h4>Thêm danh mục</h4>
         </div>
+
         <div class="card-body">
-            <form action="{{ url('admin/add-category') }}" method="POST">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        <div>{{ $error }}</div>
+                    @endforeach
+                </div>
+            @endif
+
+            <form action="{{ url('admin/categories') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="name">Tên danh mục</label>
-                    <input type="text" name="name" class="form-control">
+                    <input type="text" name="name" class="form-control" autocomplete="off">
                 </div>
                 
                 <div class="mb-3">
                     <label for="parent_category">Danh mục chính</label>
                     <select name="parent_category" id="parent_category" class="form-select">
-
+                        <option value="">Là danh mục chính</option>
+                        @foreach ($category as $option)
+                            @if ($option->parent_id == '')
+                                <option value="{{ $option->id }}">{{ $option->name }}</option>
+                            @endif
+                        @endforeach
                     </select>
                 </div>
                 

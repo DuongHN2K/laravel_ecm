@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Admin\CategoryFormRequest;
 
 class CategoryController extends Controller
@@ -41,7 +42,7 @@ class CategoryController extends Controller
     public function edit($category_id)
     {
         //
-        $category = Category::find($category_id);
+        $category = Category::find($category_id)::with('name');
         return view('admin.category.edit', compact('category'));
     }
 

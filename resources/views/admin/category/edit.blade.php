@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Quản lý thương hiệu')
+@section('title', 'Quản lý danh mục')
 
 @section('content')
 <div class="container-fluid px-4">
@@ -18,18 +18,21 @@
                 </div>
             @endif
 
-            <form action="{{ url('admin/brands/'.$brand->id) }}" method="POST">
+            <form action="{{ url('admin/categories/'.$category->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
                     <label for="name">Tên thương hiệu</label>
-                    <input type="text" name="name" value="{{ $brand->name }}" class="form-control" autocomplete="off">
+                    <input type="text" name="name" value="{{ $category->name }}" class="form-control" autocomplete="off">
                 </div>
 
                 <div class="mb-3">
                     <label for="parent_category">Danh mục chính</label>
-                    <select name="parent_category" id="parent_category" class="form-select">
-
+                    <select name="parent_category" id="parent_category" class="form-select" value="{{ $category->name }}">
+                        <option value="">Là danh mục chính</option>
+                        @foreach ($category as $option)
+                            <option value="{{ $option->id ?? '' }}">{{ $option->name ?? '' }}</option>
+                        @endforeach
                     </select>
                 </div>
                 
@@ -37,11 +40,11 @@
                 <div class="row">
                     <div class="col-md-3 mb-3">
                         <label for="navbar_status">Thanh điều hướng</label>
-                        <input type="checkbox" name="navbar_status" {{ $brand->navbar_status == 1 ? 'checked':'' }}>
+                        <input type="checkbox" name="navbar_status" {{ $category->navbar_status == 1 ? 'checked':'' }}>
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="status">Ẩn</label>
-                        <input type="checkbox" name="status" {{ $brand->status == 1 ? 'checked':'' }}>
+                        <input type="checkbox" name="status" {{ $category->status == 1 ? 'checked':'' }}>
                     </div>
                 </div>
                 

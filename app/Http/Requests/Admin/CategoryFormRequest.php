@@ -23,13 +23,15 @@ class CategoryFormRequest extends FormRequest
     {
         $rules = [
             //
-            'category_name' => [
+            'name' => [
                 'required',
                 'string',
                 'max:200'
             ],
             'parent_category' => [
-
+                'sometimes',
+                'nullable',
+                'numeric'
             ],
             'navbar_status' => [
                 'nullable'

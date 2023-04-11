@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('categories', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
-            $table->tinyInteger('navbar_status')->default('0');
             $table->tinyInteger('status')->default('0');
         });
 

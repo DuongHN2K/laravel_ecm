@@ -28,9 +28,9 @@ class Category extends Model
     // Relationship to Parent category
     public function parent()
     {
-        return $this->belongsTo(Category::class, 'parent_id');
+        return $this->belongsTo(Category::class, 'id');
     }
-
+    
     // Relationship to Sub categories
     public function subs()
     {
