@@ -41,7 +41,7 @@
                                 @if ($item->parent_id == '')
                                     Là danh mục chính
                                 @else
-                                    {{ $item->parent_id }}
+                                    {{ $item->parent->name }}
                                 @endif
                             </td>
                             <td>{{ $item->status == '1' ? 'Ẩn':'Hiện' }}</td>

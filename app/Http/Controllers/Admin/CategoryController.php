@@ -42,8 +42,9 @@ class CategoryController extends Controller
     public function edit($category_id)
     {
         //
-        $category = Category::find($category_id)::with('name');
-        return view('admin.category.edit', compact('category'));
+        $totalCategory= Category::where('status', '0')->where('id', '!=', $category_id)->get();
+        $category = Category::find($category_id);
+        return view('admin.category.edit', compact('category', 'totalCategory'));
     }
 
     /**

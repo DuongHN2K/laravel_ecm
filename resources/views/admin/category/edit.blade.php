@@ -6,7 +6,7 @@
 <div class="container-fluid px-4">
     <div class="card mt-4">
         <div class="card-header">
-            <h4>Sửa thông tin thương hiệu</h4>
+            <h4>Sửa thông tin danh mục</h4>
         </div>
         
         <div class="card-body">
@@ -22,16 +22,18 @@
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
-                    <label for="name">Tên thương hiệu</label>
+                    <label for="name">Tên danh mục</label>
                     <input type="text" name="name" value="{{ $category->name }}" class="form-control" autocomplete="off">
                 </div>
 
                 <div class="mb-3">
                     <label for="parent_category">Danh mục chính</label>
-                    <select name="parent_category" id="parent_category" class="form-select" value="{{ $category->name }}">
+                    <select name="parent_category" id="parent_category" class="form-select">
                         <option value="">Là danh mục chính</option>
-                        @foreach ($category as $option)
-                            <option value="{{ $option->id ?? '' }}">{{ $option->name ?? '' }}</option>
+                        @foreach ($totalCategory as $cateitem)
+                            @if ($cateitem->parent_id == '')
+                                <option value="{{ $cateitem->id }}" {{ $category->parent_id == $cateitem->id ? 'selected':'' }}>{{ $cateitem->name }}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
