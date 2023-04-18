@@ -33,30 +33,30 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($category as $item)
+                    @foreach ($category as $cateitem)
                         <tr>
-                            <td>{{ $item->id }}</td>
-                            <td>{{ $item->name }}</td>
+                            <td>{{ $cateitem->id }}</td>
+                            <td>{{ $cateitem->name }}</td>
                             <td>
-                                @if ($item->parent_id == '')
+                                @if ($cateitem->parent_id == '')
                                     Là danh mục chính
                                 @else
-                                    {{ $item->parent->name }}
+                                    {{ $cateitem->parent->name }}
                                 @endif
                             </td>
-                            <td>{{ $item->status == '1' ? 'Ẩn':'Hiện' }}</td>
+                            <td>{{ $cateitem->status == '1' ? 'Ẩn':'Hiện' }}</td>
                             <td>
                                 <a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="right" title="Chi tiết">
                                     <i class="bi bi-info-circle"></i>
                                 </a>
                             </td>
                             <td>
-                                <a href="{{ url('admin/categories/'.$item->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
+                                <a href="{{ url('admin/categories/'.$cateitem->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
                             </td>
                             <td>
-                                <form action="{{ url('admin/categories/'.$item->id) }}" method="POST">
+                                <form action="{{ url('admin/categories/'.$cateitem->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Xóa">

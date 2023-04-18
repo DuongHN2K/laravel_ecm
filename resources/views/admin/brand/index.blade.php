@@ -32,11 +32,11 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($brand as $item)
+                    @foreach ($brand as $branditem)
                         <tr>
-                            <td>{{ $item->id }}</td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->status == '1' ? 'Ẩn':'Hiện' }}</td>
+                            <td>{{ $branditem->id }}</td>
+                            <td>{{ $branditem->name }}</td>
+                            <td>{{ $branditem->status == '1' ? 'Ẩn':'Hiện' }}</td>
                             {{--                             
                             <td>
                                 <a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Chi tiết">
@@ -45,12 +45,12 @@
                             </td>
                             --}}
                             <td>
-                                <a href="{{ url('admin/brands/'.$item->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
+                                <a href="{{ url('admin/brands/'.$branditem->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
                             </td>
                             <td>
-                                <form action="{{ url('admin/brands/'.$item->id) }}" method="POST">
+                                <form action="{{ url('admin/brands/'.$branditem->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Xóa">
