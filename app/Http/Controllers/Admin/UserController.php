@@ -18,51 +18,40 @@ class UserController extends Controller
         return view('admin.user.index', compact('user'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
+     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($user_id)
     {
         //
+        $user = User::find($user_id);
+        return view('admin.user.show', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($user_id)
     {
         //
+        $user = User::find($user_id);
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $user_id)
     {
         //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $user = User::find($user_id);
+        if($user)
+        {
+            $user->user_type = $request->user_type;
+            $user->status = $request->status == true ? '1':'0';
+            $user->update();
+            return redirect('admin/users')->with('message', 'Cập nhật thành công');
+        }
+        return redirect('admin/users')->with('message', 'Không tìm được người dùng nào');
     }
 }
