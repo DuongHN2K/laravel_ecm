@@ -23,7 +23,7 @@
     <!-- AlpineJS -->
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
-<body>
+<body class="sb-nav-fixed">
     <!-- Navbar -->
     @include('layouts.inc.admin-navbar')
 
