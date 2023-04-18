@@ -7,7 +7,7 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
-                <div class="sb-sidenav-menu-heading">Giao diện quản lý</div>
+                <div class="sb-sidenav-menu-heading">Giao diện quản trị</div>
                 
                 {{--                 
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -23,27 +23,56 @@
                 </div>
                 --}}
 
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePagesManageProducts" aria-expanded="false" aria-controls="collapsePagesManageProducts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    Danh mục
+                    Quản trị danh mục
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ url('admin/categories/create') }}">Thêm danh mục</a>
-                        <a class="nav-link" href="{{ url('admin/categories') }}">Hiện danh mục</a>
+                <div class="collapse" id="collapsePagesManageProducts" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseCategory" aria-expanded="false" aria-controls="pagesCollapseCategory">
+                            Danh mục
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="pagesCollapseCategory" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{ url('admin/categories/create') }}">Thêm danh mục</a>
+                                <a class="nav-link" href="{{ url('admin/categories') }}">Hiện danh mục</a>
+                            </nav>
+                        </div>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseBrand" aria-expanded="false" aria-controls="pagesCollapseBrand">
+                            Thương hiệu
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="pagesCollapseBrand" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{ url('admin/brands/create') }}">Thêm thương hiệu</a>
+                                <a class="nav-link" href="{{ url('admin/brands') }}">Hiện thương hiệu</a>
+                            </nav>
+                        </div>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseProduct" aria-expanded="false" aria-controls="pagesCollapseProduct">
+                            Sản phẩm
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="pagesCollapseProduct" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{ url('admin/products/create') }}">Thêm sản phẩm</a>
+                                <a class="nav-link" href="{{ url('admin/products') }}">Hiện sản phẩm</a>
+                            </nav>
+                        </div>
                     </nav>
                 </div>
 
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
-                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    Thương hiệu
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseUsers" aria-expanded="false" aria-controls="pagesCollapseUsers">
+                    <div class="sb-nav-link-icon"><i class="bi bi-people-fill"></i></div>
+                    Quản trị người dùng
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <div class="collapse" id="collapseLayouts2" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                <div class="collapse" id="pagesCollapseUsers" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ url('admin/brands/create') }}">Thêm thương hiệu</a>
-                        <a class="nav-link" href="{{ url('admin/brands') }}">Hiện thương hiệu</a>
+                        <a class="nav-link" href="{{ url('admin/users') }}">Hiện người dùng</a>
                     </nav>
                 </div>
 
@@ -78,6 +107,7 @@
                         </div>
                     </nav>
                 </div>
+                
                 <div class="sb-sidenav-menu-heading">Addons</div>
                 <a class="nav-link" href="charts.html">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>

@@ -22,12 +22,12 @@
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
-                    <label for="name">Tên danh mục</label>
+                    <label for="name" class="h6">Tên danh mục</label>
                     <input type="text" name="name" value="{{ $category->name }}" class="form-control" autocomplete="off">
                 </div>
 
                 <div class="mb-3">
-                    <label for="parent_category">Danh mục chính</label>
+                    <label for="parent_category" class="h6">Danh mục chính</label>
                     <select name="parent_category" id="parent_category" class="form-select">
                         <option value="">Là danh mục chính</option>
                         @foreach ($totalCategory as $cateitem)

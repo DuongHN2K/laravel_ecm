@@ -24,11 +24,11 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>STT</th>
                         <th>Tên danh mục</th>
                         <th>Danh mục chính</th>
                         <th>Trạng thái</th>
-                        <th class="w-25" colspan="3">Hành động</th>
+                        <th class="w-25" colspan="3">Tác vụ</th>
                     </tr>
                 </thead>
 

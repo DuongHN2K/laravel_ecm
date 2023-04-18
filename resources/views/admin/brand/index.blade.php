@@ -24,10 +24,10 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>STT</th>
                         <th>Tên thương hiệu</th>
                         <th>Trạng thái</th>
-                        <th class="w-25" colspan="2">Hành động</th>
+                        <th class="w-25" colspan="2">Tác vụ</th>
                     </tr>
                 </thead>
 

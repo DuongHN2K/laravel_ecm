@@ -21,7 +21,7 @@
             <form action="{{ url('admin/brands') }}" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <label for="name">Tên thương hiệu</label>
+                    <label for="name" class="h6">Tên thương hiệu</label>
                     <input type="text" name="name" class="form-control" autocomplete="off">
                 </div>
                 
