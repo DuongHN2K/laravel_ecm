@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Manage brands')
+@section('title', 'Quản lý danh mục')
 
 @section('content')
 <div class="container-fluid px-4">
@@ -37,15 +37,21 @@
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->name }}</td>
-                            <td>{{ $item->parent_id->name }}</td>
+                            <td>
+                                @if ($item->parent_id == '')
+                                    Là danh mục chính
+                                @else
+                                    {{ $item->parent->name }}
+                                @endif
+                            </td>
                             <td>{{ $item->status == '1' ? 'Ẩn':'Hiện' }}</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Chi tiết">
+                                <a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="right" title="Chi tiết">
                                     <i class="bi bi-info-circle"></i>
                                 </a>
                             </td>
                             <td>
-                                <a href="{{ url('admin/categories/'.$item->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Sửa">
+                                <a href="{{ url('admin/categories/'.$item->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
                             </td>
@@ -53,7 +59,7 @@
                                 <form action="{{ url('admin/categories/'.$item->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Xóa">
+                                    <button class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Xóa">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </form>
