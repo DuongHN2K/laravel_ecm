@@ -22,9 +22,6 @@
 
     {{-- AlpineJS --}}
     <script src="//unpkg.com/alpinejs" defer></script>
-    
-    {{-- JQuery --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     {{-- Datatable --}}
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
@@ -40,6 +37,11 @@
             width: 50% !important;
         }
     </style>
+
+    {{-- SummernoteJS --}}
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="sb-nav-fixed">
     {{-- Navbar --}}
@@ -60,6 +62,7 @@
     {{-- Scripts --}}
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
     <script src="{{asset('assets/js/scripts.js')}}" crossorigin="anonymous"></script>
+    <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script> {{-- JQuery --}}
     
     {{-- Datatable scripts --}}
     <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
@@ -69,6 +72,18 @@
             language: {
                 url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/vi.json',
             },
+        });
+    </script>
+
+    {{-- SummernoteJS scripts --}}
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script src="{{asset('assets/js/summernote-vi-VN.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+            $("#mySummernote").summernote({
+                lang: "vi-VN"
+            });
+            $('.dropdown-toggle').dropdown();
         });
     </script>
 </body>

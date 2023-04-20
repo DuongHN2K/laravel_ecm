@@ -47,7 +47,7 @@
 
                 <div class="mb-3">
                     <label for="description" class="h6">Mô tả</label>
-                    <textarea rows="5" name="description" class="form-control" autocomplete="off"></textarea>
+                    <textarea rows="5" name="description" id="mySummernote" class="form-control" autocomplete="off"></textarea>
                 </div>
 
                 <div class="mb-3">
@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="images" class="h6">Ảnh sản phẩm (Chọn nhiều ảnh)</label>
+                    <label for="images" class="h6">Ảnh sản phẩm (Chọn một hoặc nhiều ảnh)</label>
                     <input type="file" required name="images[]" multiple class="form-control">
                 </div>
 
