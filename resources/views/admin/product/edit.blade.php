@@ -48,7 +48,7 @@
 
                 <div class="mb-3">
                     <label for="description" class="h6">Mô tả</label>
-                    <textarea rows="5" name="description" class="form-control" autocomplete="off">
+                    <textarea rows="5" name="description" id="mySummernote" class="form-control" autocomplete="off">
                         {{ $product->description }}
                     </textarea>
                 </div>
