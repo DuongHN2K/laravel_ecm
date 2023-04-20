@@ -30,7 +30,7 @@
                         <th>Danh mục</th>
                         <th>Giá bán</th>
                         <th>Trạng thái</th>
-                        <th>Hành động</th>
+                        <th>Tác vụ</th>
                     </tr>
                 </thead>
 
