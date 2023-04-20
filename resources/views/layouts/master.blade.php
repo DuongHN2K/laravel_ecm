@@ -22,9 +22,24 @@
 
     {{-- AlpineJS --}}
     <script src="//unpkg.com/alpinejs" defer></script>
+    
+    {{-- JQuery --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     {{-- Datatable --}}
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <style>
+        .dataTables_wrapper .dataTables_paginate .paginate_button
+        {
+            padding: 0px !important;
+            margin: 0px !important;
+        }
+        .dataTables_wrapper .dataTables_length select
+        {
+            width: 50% !important;
+        }
+    </style>
 </head>
 <body class="sb-nav-fixed">
     {{-- Navbar --}}
@@ -48,8 +63,13 @@
     
     {{-- Datatable scripts --}}
     <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script>
-        let table = new DataTable('#myTable');
+        var table = new DataTable('#myTable', {
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/vi.json',
+            },
+        });
     </script>
 </body>
 </html>

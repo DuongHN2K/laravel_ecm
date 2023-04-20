@@ -18,7 +18,7 @@
                 </div>
             @endif
 
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="myTable">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -42,13 +42,13 @@
                             <td>{{ $useritem->status == '1' ? 'Khóa':'Mở' }}</td>
                             <td>
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-6">
                                         <a href="{{ url('admin/users/'.$useritem->id) }}" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="right" title="Chi tiết">
                                             <i class="bi bi-info-circle"></i>
                                         </a>
                                     </div>
 
-                                    <div class="col-md-3">
+                                    <div class="col-md-6">
                                         <a href="{{ url('admin/users/'.$useritem->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
