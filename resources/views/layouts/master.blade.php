@@ -4,30 +4,33 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
+    {{-- CSRF Token --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
 
-    <!-- Fonts -->
+    {{-- Fonts --}}
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     
-    <!-- Bootstrap icons -->
+    {{-- Bootstrap icons --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
-    <!-- Styles -->
+    Styles
     <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
 
-    <!-- AlpineJS -->
+    {{-- AlpineJS --}}
     <script src="//unpkg.com/alpinejs" defer></script>
+
+    {{-- Datatable --}}
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 </head>
 <body class="sb-nav-fixed">
-    <!-- Navbar -->
+    {{-- Navbar --}}
     @include('layouts.inc.admin-navbar')
 
-    <!-- Sidebar -->
+    {{-- Sidebar --}}
     <div id="layoutSidenav">
         @include('layouts.inc.admin-sidebar')
         <div id="layoutSidenav_content">
@@ -39,8 +42,14 @@
         </div>
     </div>
     
-    <!-- Scripts -->
+    {{-- Scripts --}}
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
     <script src="{{asset('assets/js/scripts.js')}}" crossorigin="anonymous"></script>
+    
+    {{-- Datatable scripts --}}
+    <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
 </body>
 </html>

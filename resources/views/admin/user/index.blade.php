@@ -27,7 +27,7 @@
                         <th>Số điện thoại</th>
                         <th>Vai trò</th>
                         <th>Trạng thái</th>
-                        <th colspan="2">Tác vụ</th>
+                        <th>Tác vụ</th>
                     </tr>
                 </thead>
 
@@ -41,14 +41,19 @@
                             <td>{{ $useritem->user_type == '1' ? 'Admin':'Thành viên' }}</td>
                             <td>{{ $useritem->status == '1' ? 'Khóa':'Mở' }}</td>
                             <td>
-                                <a href="{{ url('admin/users/'.$useritem->id) }}" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="right" title="Chi tiết">
-                                    <i class="bi bi-info-circle"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="{{ url('admin/users/'.$useritem->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
-                                    <i class="bi bi-pencil-square"></i>
-                                </a>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <a href="{{ url('admin/users/'.$useritem->id) }}" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="right" title="Chi tiết">
+                                            <i class="bi bi-info-circle"></i>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <a href="{{ url('admin/users/'.$useritem->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

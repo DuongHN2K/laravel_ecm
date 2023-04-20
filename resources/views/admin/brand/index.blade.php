@@ -27,7 +27,7 @@
                         <th>STT</th>
                         <th>Tên thương hiệu</th>
                         <th>Trạng thái</th>
-                        <th class="w-25" colspan="2">Tác vụ</th>
+                        <th class="w-25">Tác vụ</th>
                     </tr>
                 </thead>
 
@@ -45,18 +45,23 @@
                             </td>
                             --}}
                             <td>
-                                <a href="{{ url('admin/brands/'.$branditem->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
-                                    <i class="bi bi-pencil-square"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <form action="{{ url('admin/brands/'.$branditem->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Xóa">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </form>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <a href="{{ url('admin/brands/'.$branditem->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="col-md-3">
+                                        <form action="{{ url('admin/brands/'.$branditem->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Xóa">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

@@ -28,7 +28,7 @@
                         <th>Tên danh mục</th>
                         <th>Danh mục chính</th>
                         <th>Trạng thái</th>
-                        <th class="w-25" colspan="3">Tác vụ</th>
+                        <th class="w-25">Tác vụ</th>
                     </tr>
                 </thead>
 
@@ -46,23 +46,29 @@
                             </td>
                             <td>{{ $cateitem->status == '1' ? 'Ẩn':'Hiện' }}</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="right" title="Chi tiết">
-                                    <i class="bi bi-info-circle"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="{{ url('admin/categories/'.$cateitem->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
-                                    <i class="bi bi-pencil-square"></i>
-                                </a>
-                            </td>
-                            <td>
-                                <form action="{{ url('admin/categories/'.$cateitem->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Xóa">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </form>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="right" title="Chi tiết">
+                                            <i class="bi bi-info-circle"></i>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <a href="{{ url('admin/categories/'.$cateitem->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="col-md-3">
+                                        <form action="{{ url('admin/categories/'.$cateitem->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Xóa">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>   
                             </td>
                         </tr>
                     @endforeach
