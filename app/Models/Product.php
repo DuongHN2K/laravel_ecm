@@ -9,6 +9,22 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $table = 'products';
+
+    protected $fillable = [
+        'category_id',
+        'brand_id',
+        'name',
+        'description',
+        'thumbnail',
+        'images',
+        'stock_quantity',
+        'price',
+        'discount_id',
+        'trending',
+        'status'
+    ];
+
     // Relationship to Category
     public function category()
     {

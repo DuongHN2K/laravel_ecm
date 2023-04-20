@@ -28,6 +28,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         'categories' => 'App\Http\Controllers\Admin\CategoryController',
         'brands' => 'App\Http\Controllers\Admin\BrandController',
         'products' => 'App\Http\Controllers\Admin\ProductController',
-        'users' => 'App\Http\Controllers\Admin\UserController'
+        'users' => 'App\Http\Controllers\Admin\UserController',
+        'discounts' => 'App\Http\Controllers\Admin\DiscountController'
     ]);
 });
