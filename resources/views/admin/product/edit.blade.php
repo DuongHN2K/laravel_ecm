@@ -70,7 +70,7 @@
 
                 <div class="mb-3">
                     <label for="images" class="h6">Ảnh sản phẩm (Chọn một hoặc nhiều ảnh)</label>
-                    <input type="file" name="images" multiple class="form-control">
+                    <input type="file" name="images[]" multiple class="form-control">
                 </div>
 
                 <div class="mb-3">

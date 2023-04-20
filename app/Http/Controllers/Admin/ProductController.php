@@ -131,18 +131,19 @@ class ProductController extends Controller
             $file->move($tn_upload_path, $tn_filename);
             $product->thumbnail = $tn_filename;
         }
+        $cur_images = $product->images;
         $images = array();
         if($request->hasFile('images'))
         {
-            // $img_files = explode("|", $product->images);
-            // foreach ($img_files as $old_file)
-            // {
-            //     $img_dest = 'images/products/product_images/' . $old_file;
-            //     if(File::exists($img_dest))
-            //     {
-            //         File::delete($img_dest);
-            //     }
-            // }
+            $img_files = explode("|", $product->images);
+            foreach ($img_files as $old_file)
+            {
+                $img_dest = 'images/products/product_images/' . $old_file;
+                if(File::exists($img_dest))
+                {
+                    File::delete($img_dest);
+                }
+            }
             foreach ($request->file('images') as $file) {
                 $img_upload_path = 'images/products/product_images/';
                 $img_name = md5(rand(1000, 10000));
@@ -151,17 +152,20 @@ class ProductController extends Controller
                 $file->move($img_upload_path, $img_filename);
                 $images[] = $img_filename;
             }
+            $product->images = implode('|', $images);
         }
-        $product->images = implode('|', $images);
+        else
+        {
+            $product->images = $cur_images;
+        }
         $product->price = $data['price'];
         $product->stock_quantity = $data['stock_quantity'];
         $product->discount_id = $data['discount'];
         $product->status = $request->status == true ? '1':'0';
         $product->trending = $request->trending == true ? '1':'0';
         $product->created_by = Auth::user()->id;
-        dd($product); // image is null when submit request
-        // $product->save();
-        // return redirect('admin/products')->with('message', 'Cập nhật thông tin sản phẩm thành công');
+        $product->save();
+        return redirect('admin/products')->with('message', 'Cập nhật thông tin sản phẩm thành công');
     }
 
     /**
