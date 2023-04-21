@@ -45,17 +45,17 @@
 </head>
 <body class="sb-nav-fixed">
     {{-- Navbar --}}
-    @include('layouts.inc.admin-navbar')
+    @include('layouts.inc.admin.admin-navbar')
 
     {{-- Sidebar --}}
     <div id="layoutSidenav">
-        @include('layouts.inc.admin-sidebar')
+        @include('layouts.inc.admin.admin-sidebar')
         <div id="layoutSidenav_content">
             <main>
                 @yield('content')
             </main>
 
-            @include('layouts.inc.admin-footer')
+            @include('layouts.inc.admin.admin-footer')
         </div>
     </div>
     
