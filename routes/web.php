@@ -16,11 +16,22 @@ use App\Http\Controllers\UserController;
 |
 */
 
-// Show Shop Index page
-Route::get('/', [ShopController::class, 'index']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// Show User Login form
-Route::get('/login', [UserController::class, 'login'])->name('login');
+Auth::routes();
 
-// Show User Register form
-Route::get('/register', [UserController::class, 'register']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
+
+    Route::resources([
+        'categories' => 'App\Http\Controllers\Admin\CategoryController',
+        'brands' => 'App\Http\Controllers\Admin\BrandController',
+        'products' => 'App\Http\Controllers\Admin\ProductController',
+        'users' => 'App\Http\Controllers\Admin\UserController',
+        'discounts' => 'App\Http\Controllers\Admin\DiscountController'
+    ]);
+});

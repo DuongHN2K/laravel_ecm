@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'phone_number',
         'email',
         'password',
     ];
@@ -41,4 +42,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Relationship to Address
+    public function addresses() 
+    {
+        return $this->hasMany(Address::class, 'user_id');
+    }
 }
