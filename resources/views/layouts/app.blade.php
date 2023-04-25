@@ -23,6 +23,9 @@
 
     {{-- AlpineJS --}}
     <script src="//unpkg.com/alpinejs" defer></script>
+
+    {{-- Livewire styles --}}
+    @livewireStyles
 </head>
 <body>
     <div id="app">
@@ -36,5 +39,6 @@
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
     <script src="{{asset('assets/js/scripts.js')}}" crossorigin="anonymous"></script>
     <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script> {{-- JQuery --}}
+    @livewireScripts
 </body>
 </html>
