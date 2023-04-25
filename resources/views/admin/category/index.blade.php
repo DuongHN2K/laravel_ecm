@@ -26,6 +26,7 @@
                     <tr>
                         <th>STT</th>
                         <th>Tên danh mục</th>
+                        <th>Slug</th>
                         <th>Danh mục chính</th>
                         <th>Trạng thái</th>
                         <th class="w-25">Tác vụ</th>
@@ -37,6 +38,7 @@
                         <tr>
                             <td>{{ $cateitem->id }}</td>
                             <td>{{ $cateitem->name }}</td>
+                            <td>{{ $cateitem->slug }}</td>
                             <td>
                                 @if ($cateitem->parent_id == '')
                                     Là danh mục chính

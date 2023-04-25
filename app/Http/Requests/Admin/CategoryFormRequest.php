@@ -28,6 +28,11 @@ class CategoryFormRequest extends FormRequest
                 'string',
                 'max:200'
             ],
+            'slug' => [
+                'required',
+                'string',
+                'max:200'
+            ],
             'parent_category' => [
                 'sometimes',
                 'nullable',

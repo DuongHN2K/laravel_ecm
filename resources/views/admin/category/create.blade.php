@@ -24,6 +24,11 @@
                     <label for="name" class="h6">Tên danh mục</label>
                     <input type="text" name="name" class="form-control" autocomplete="off">
                 </div>
+
+                <div class="mb-3">
+                    <label for="slug" class="h6">Slug</label>
+                    <input type="text" name="slug" class="form-control" autocomplete="off">
+                </div>
                 
                 <div class="mb-3">
                     <label for="parent_category" class="h6">Danh mục chính</label>
