@@ -28,7 +28,7 @@
 
                 <div class="mb-3">
                     <label for="slug" class="h6">Slug</label>
-                    <input type="text" name="slug" class="form-control" autocomplete="off">
+                    <input type="text" name="slug" value="{{ $category->slug }}" class="form-control" autocomplete="off">
                 </div>
 
                 <div class="mb-3">

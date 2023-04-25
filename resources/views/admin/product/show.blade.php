@@ -17,6 +17,11 @@
                 <p> {{ $product->name }} </p>
             </div>
 
+            <div class="mb-3">
+                <label class="h6">Slug:</label>
+                <p> {{ $product->slug }} </p>
+            </div>
+
             <div class="row">
                 <div class="mb-3 col-md-6">
                     <label class="h6">Danh mục:</label>

@@ -46,6 +46,7 @@ class ProductController extends Controller
         $data = $request->validated();
         $product = new Product();
         $product->name = $data['name'];
+        $product->slug = $data['slug'];
         $product->category_id = $data['category'];
         $product->brand_id = $data['brand'];
         $product->description = $data['description'];
@@ -114,6 +115,7 @@ class ProductController extends Controller
         $data = $request->validated();
         $product = Product::find($product_id);
         $product->name = $data['name'];
+        $product->slug = $data['slug'];
         $product->category_id = $data['category'];
         $product->brand_id = $data['brand'];
         $product->description = $data['description'];
