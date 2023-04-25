@@ -1,15 +1,15 @@
 @extends('layouts.master')
 
-@section('title', 'Quản lý danh mục')
+@section('title', 'Quản lý sản phẩm')
 
 @section('content')
 <div class="container-fluid px-4">
     <div class="card mt-4">
         <div class="card-header">
             <h4>
-                Hiện danh mục
-                <a href="{{ url('admin/categories/create') }}" class="btn btn-primary btn-sm float-end">
-                    Thêm danh mục
+                Hiện sản phẩm
+                <a href="{{ url('admin/products/create') }}" class="btn btn-primary btn-sm float-end">
+                    Thêm sản phẩm
                 </a>
             </h4>
         </div>
@@ -25,42 +25,42 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Tên danh mục</th>
-                        <th>Danh mục chính</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Ảnh đại diện</th>
+                        <th>Danh mục</th>
+                        <th>Giá bán</th>
                         <th>Trạng thái</th>
-                        <th class="w-25">Tác vụ</th>
+                        <th>Tác vụ</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($category as $cateitem)
+                    @foreach ($product as $proditem)
                         <tr>
-                            <td>{{ $cateitem->id }}</td>
-                            <td>{{ $cateitem->name }}</td>
-                            <td>
-                                @if ($cateitem->parent_id == '')
-                                    Là danh mục chính
-                                @else
-                                    {{ $cateitem->parent->name }}
-                                @endif
+                            <td>{{ $proditem->id }}</td>
+                            <td>{{ $proditem->name }}</td>
+                            <td> 
+                                <img src="{{ asset('images/products/thumbnail/' . $proditem->thumbnail) }}" width="70px" height="70px" alt="Thumbnail">
                             </td>
-                            <td>{{ $cateitem->status == '1' ? 'Ẩn':'Hiện' }}</td>
+                            <td>{{ $proditem->category->name }}</td>
+                            <td>{{ $proditem->price }} VNĐ</td>
+                            <td>{{ $proditem->status == '1' ? 'Ẩn':'Hiện' }}</td>
                             <td>
                                 <div class="row">
-                                    <div class="col-md-3">
-                                        <a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="right" title="Chi tiết">
+                                    <div class="col-md-4">
+                                        <a href="{{ url('admin/products/'.$proditem->id) }}" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="right" title="Chi tiết">
                                             <i class="bi bi-info-circle"></i>
                                         </a>
                                     </div>
 
-                                    <div class="col-md-3">
-                                        <a href="{{ url('admin/categories/'.$cateitem->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
+                                    <div class="col-md-4">
+                                        <a href="{{ url('admin/products/'.$proditem->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
                                     </div>
-                                    
-                                    <div class="col-md-3">
-                                        <form action="{{ url('admin/categories/'.$cateitem->id) }}" method="POST">
+
+                                    <div class="col-md-4">
+                                        <form action="{{ url('admin/products/'.$proditem->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Xóa">
@@ -68,7 +68,7 @@
                                             </button>
                                         </form>
                                     </div>
-                                </div>   
+                                </div>       
                             </td>
                         </tr>
                     @endforeach

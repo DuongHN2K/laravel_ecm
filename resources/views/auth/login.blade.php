@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Đăng ký')
+@section('title', 'Đăng nhập')
 
 @section('content')
 <div class="container">
