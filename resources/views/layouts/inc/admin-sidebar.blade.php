@@ -3,7 +3,7 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Core</div>
-                <a class="nav-link" href="{{ url('admin/dashboard') }}">
+                <a class="nav-link {{ Request::is('admin/dashboard') ? 'active':'' }}" href="{{ url('admin/dashboard') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
@@ -23,56 +23,70 @@
                 </div>
                 --}}
 
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePagesManageProducts" aria-expanded="false" aria-controls="collapsePagesManageProducts">
+                <a class="nav-link 
+                {{ Request::is('admin/products/create')
+                || Request::is('admin/products') 
+                || Request::is('admin/brands/create') 
+                || Request::is('admin/brands')
+                || Request::is('admin/categories/create')
+                || Request::is('admin/categories') 
+                ? 'collapse active':'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePagesManageProducts" aria-expanded="false" aria-controls="collapsePagesManageProducts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     Quản trị danh mục
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <div class="collapse" id="collapsePagesManageProducts" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
+                <div class="collapse 
+                {{ Request::is('admin/products/create')
+                || Request::is('admin/products') 
+                || Request::is('admin/brands/create') 
+                || Request::is('admin/brands')
+                || Request::is('admin/categories/create')
+                || Request::is('admin/categories') 
+                ? 'show':'' }}" id="collapsePagesManageProducts" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseCategory" aria-expanded="false" aria-controls="pagesCollapseCategory">
+                        <a class="nav-link {{ Request::is('admin/categories/create') || Request::is('admin/categories') ? 'collapse active':'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseCategory" aria-expanded="false" aria-controls="pagesCollapseCategory">
                             Danh mục
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="pagesCollapseCategory" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <div class="collapse {{ Request::is('admin/categories/create') || Request::is('admin/categories') ? 'show':'' }}" id="pagesCollapseCategory" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{ url('admin/categories/create') }}">Thêm danh mục</a>
-                                <a class="nav-link" href="{{ url('admin/categories') }}">Hiện danh mục</a>
+                                <a class="nav-link {{ Request::is('admin/categories/create') ? 'active':'' }}" href="{{ url('admin/categories/create') }}">Thêm danh mục</a>
+                                <a class="nav-link {{ Request::is('admin/categories') ? 'active':'' }}" href="{{ url('admin/categories') }}">Hiện danh mục</a>
                             </nav>
                         </div>
 
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseBrand" aria-expanded="false" aria-controls="pagesCollapseBrand">
+                        <a class="nav-link {{ Request::is('admin/brands/create') || Request::is('admin/brands') ? 'collapse active':'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseBrand" aria-expanded="false" aria-controls="pagesCollapseBrand">
                             Thương hiệu
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="pagesCollapseBrand" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <div class="collapse {{ Request::is('admin/brands/create') || Request::is('admin/brands') ? 'show':'' }}" id="pagesCollapseBrand" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{ url('admin/brands/create') }}">Thêm thương hiệu</a>
-                                <a class="nav-link" href="{{ url('admin/brands') }}">Hiện thương hiệu</a>
+                                <a class="nav-link {{ Request::is('admin/brands/create') ? 'active':'' }}" href="{{ url('admin/brands/create') }}">Thêm thương hiệu</a>
+                                <a class="nav-link {{ Request::is('admin/brands') ? 'active':'' }}" href="{{ url('admin/brands') }}">Hiện thương hiệu</a>
                             </nav>
                         </div>
 
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseProduct" aria-expanded="false" aria-controls="pagesCollapseProduct">
+                        <a class="nav-link {{ Request::is('admin/products/create') || Request::is('admin/products') ? 'collapse active':'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseProduct" aria-expanded="false" aria-controls="pagesCollapseProduct">
                             Sản phẩm
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="pagesCollapseProduct" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <div class="collapse {{ Request::is('admin/products/create') || Request::is('admin/products') ? 'show':'' }}" id="pagesCollapseProduct" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{ url('admin/products/create') }}">Thêm sản phẩm</a>
-                                <a class="nav-link" href="{{ url('admin/products') }}">Hiện sản phẩm</a>
+                                <a class="nav-link {{ Request::is('admin/products/create') ? 'active':'' }}" href="{{ url('admin/products/create') }}">Thêm sản phẩm</a>
+                                <a class="nav-link {{ Request::is('admin/products') ? 'active':'' }}" href="{{ url('admin/products') }}">Hiện sản phẩm</a>
                             </nav>
                         </div>
                     </nav>
                 </div>
 
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseUsers" aria-expanded="false" aria-controls="pagesCollapseUsers">
+                <a class="nav-link {{ Request::is('admin/users') ? 'collapse active':'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseUsers" aria-expanded="false" aria-controls="pagesCollapseUsers">
                     <div class="sb-nav-link-icon"><i class="bi bi-people-fill"></i></div>
                     Quản trị người dùng
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <div class="collapse" id="pagesCollapseUsers" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
+                <div class="collapse {{ Request::is('admin/users') ? 'show':'' }}" id="pagesCollapseUsers" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ url('admin/users') }}">Hiện người dùng</a>
+                        <a class="nav-link {{ Request::is('admin/users') ? 'active':'' }}" href="{{ url('admin/users') }}">Hiện người dùng</a>
                     </nav>
                 </div>
 
