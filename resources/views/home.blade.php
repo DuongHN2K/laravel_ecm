@@ -15,8 +15,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('Đăng nhập thành công!') }}
                 </div>
             </div>
         </div>
