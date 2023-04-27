@@ -28,6 +28,7 @@ class CategoryController extends Controller
         $data = $request->validated();
         $category = new Category();
         $category->name = $data['name'];
+        $category->slug = $data['slug'];
         $category->parent_id = $data['parent_category'];
         $category->navbar_status = $request->navbar_status == true ? '1':'0';
         $category->status = $request->status == true ? '1':'0';
@@ -56,6 +57,7 @@ class CategoryController extends Controller
         $data = $request->validated();
         $category = Category::find($category_id);
         $category->name = $data['name'];
+        $category->slug = $data['slug'];
         $category->parent_id = $data['parent_category'];
         $category->navbar_status = $request->navbar_status == true ? '1':'0';
         $category->status = $request->status == true ? '1':'0';

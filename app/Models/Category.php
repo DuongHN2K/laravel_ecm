@@ -14,6 +14,7 @@ class Category extends Model
     protected $fillable = [
         'parent_id',
         'name',
+        'slug',
         'navbar_status',
         'status',
         'created_by'
@@ -22,7 +23,7 @@ class Category extends Model
     // Relationship to Product
     public function products()
     {
-        return $this->hasMany(Product::class, 'category_id');
+        return $this->hasMany(Product::class, 'category_id', 'id');
     }
 
     // Relationship to Parent category

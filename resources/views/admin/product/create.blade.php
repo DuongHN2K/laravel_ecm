@@ -28,6 +28,11 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="slug" class="h6">Slug</label>
+                    <input type="text" name="slug" class="form-control" autocomplete="off">
+                </div>
+
+                <div class="mb-3">
                     <label for="category" class="h6">Danh mục</label>
                     <select name="category" id="category" class="form-select">
                         @foreach ($category as $cateitem)

@@ -35,6 +35,11 @@ class ProductFormRequest extends FormRequest
                 'string',
                 'max:200'
             ],
+            'slug' => [
+                'required',
+                'string',
+                'max:200'
+            ],
             'description' => [
                 'required',
                 'string'
