@@ -30,7 +30,7 @@ class Show extends Component
                     'product_id' => $productId
                 ]);
                 $this->dispatchBrowserEvent('message', [
-                    'text' => 'Đã thêm mục ưa thích',
+                    'text' => 'Đã thêm vào mục ưa thích',
                     'type' => 'success',
                     'status' => 200
                 ]);
