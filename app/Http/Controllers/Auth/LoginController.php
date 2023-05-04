@@ -35,10 +35,6 @@ class LoginController extends Controller
         {
             return redirect('/admin/dashboard')->with('status', 'Chào bạn tới trang Admin');
         }
-        elseif(Auth::user()->user_type == '0') // 0 == Client
-        {
-            return redirect('/home')->with('status', 'Đăng nhập thành công');
-        }
         else
         {
             return redirect('/');

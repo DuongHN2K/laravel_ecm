@@ -24,7 +24,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ url('wishlist') }}">
                                 <i class="fa fa-heart"></i> Mục ưa thích (0)
                             </a>
                         </li>
@@ -48,21 +48,19 @@
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
                                     <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> Đơn hàng</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> Danh sách ưa thích</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('wishlist') }}"><i class="fa fa-heart"></i> Mục ưa thích</a></li>
                                     <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                     <li>
-                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                                <i class="fa fa-sign-out"></i>
-                                                {{ __('Đăng xuất') }}
-                                            </a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out"></i>
+                                            {{ __('Đăng xuất') }}
+                                        </a>
 
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                @csrf
-                                            </form>
-                                        </div>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
                                     </li>
                                 </ul>
                             </li>
