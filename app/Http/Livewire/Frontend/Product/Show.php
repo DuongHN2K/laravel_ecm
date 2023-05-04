@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Show extends Component
 {
-    public $category, $product;
+    public $category, $product, $quantityCount = 1;
 
     public function addToWishlist($productId)
     {
@@ -44,6 +44,22 @@ class Show extends Component
                 'status' => 401
             ]);
             return false;
+        }
+    }
+
+    public function quantityDecrement()
+    {
+        if ($this->quantityCount > 1) 
+        {
+            $this->quantityCount--;
+        }
+    }
+
+    public function quantityIncrement()
+    {
+        if ($this->quantityCount < 10) 
+        {
+            $this->quantityCount++;
         }
     }
 
