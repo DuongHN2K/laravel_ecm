@@ -239,3 +239,13 @@
     outline: none;
     text-align: center;
 }
+.shopping-cart .count-quantity{
+    border: 1px solid #000;
+    margin-right: 3px;
+    font-size: 12px;
+    width: 40%;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

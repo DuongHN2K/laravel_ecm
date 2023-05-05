@@ -5,10 +5,12 @@ namespace App\Http\Livewire\Frontend\Product;
 use App\Models\Wishlist;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Cart;
+use Illuminate\Support\Facades\Redirect;
 
 class Show extends Component
 {
-    public $category, $product;
+    public $category, $product, $qty = 1;
 
     public function addToWishlist($productId)
     {
@@ -47,10 +49,32 @@ class Show extends Component
         }
     }
 
+    public function quantityDecrement()
+    {
+        if ($this->qty > 1) 
+        {
+            $this->qty--;
+        }
+    }
+
+    public function quantityIncrement()
+    {
+        if ($this->qty < 10) 
+        {
+            $this->qty++;
+        }
+    }
+
     public function mount($category, $product)
     {
         $this->category = $category;
         $this->product = $product;
+    }
+
+    public function addToCart($productId, $productName, $qty, $productPrice)
+    {
+        Cart::add($productId, $productName, $qty, $productPrice)->associate('App\Models\Product');
+        return redirect('cart');
     }
 
     public function render()

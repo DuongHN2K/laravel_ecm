@@ -19,7 +19,7 @@
                     <ul class="nav justify-content-end">
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ url('cart') }}">
                                 <i class="fa fa-shopping-cart"></i> Giỏ hàng (0)
                             </a>
                         </li>
@@ -49,7 +49,7 @@
                                     <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
                                     <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> Đơn hàng</a></li>
                                     <li><a class="dropdown-item" href="{{ url('wishlist') }}"><i class="fa fa-heart"></i> Mục ưa thích</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('cart') }}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
@@ -87,25 +87,10 @@
                         <a class="nav-link" href="{{ url('/collections') }}">Tất cả danh mục</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">New Arrivals</a>
+                        <a class="nav-link" href="#">Hàng mới về</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Featured Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Electronics</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Fashions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Appliances</a>
+                        <a class="nav-link" href="#">Sản phẩm nổi bật</a>
                     </li>
                 </ul>
             </div>

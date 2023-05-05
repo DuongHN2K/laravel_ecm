@@ -39,16 +39,25 @@
                         
                         <div class="mt-2">
                             <div class="input-group">
-                                <span class="btn btn1"><i class="fa fa-minus"></i></span>
-                                <input type="text" value="1" class="input-quantity" />
-                                <span class="btn btn1"><i class="fa fa-plus"></i></span>
+                                <span class="btn btn1" wire:click="quantityDecrement">
+                                    <i class="fa fa-minus"></i>
+                                </span>
+                                <input type="text" wire:model="qty" readonly value="{{ $this->qty }}" class="input-quantity" />
+                                <span class="btn btn1" wire:click="quantityIncrement">
+                                    <i class="fa fa-plus"></i>
+                                </span>
                             </div>
                         </div>
                         
                         <div class="mt-2">
-                            <a href="" class="btn btn1"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng </a>
+                            <button 
+                            type="button" class="btn btn1"
+                            wire:click.prevent="addToCart({{ $product->id }}, '{{ $product->name }}', {{ $this->qty }}, {{ $product->price }})"
+                            > 
+                                <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng 
+                            </button>
                             <button type="button" wire:click="addToWishlist({{ $product->id }})" class="btn btn1">
-                                <span wire:loading.remove>
+                                <span wire:loading.remove wire:target="addToWishlist">
                                     <i class="fa fa-heart"></i> Ưa thích 
                                 </span> 
                                 <span wire:loading wire:target="addToWishlist">
