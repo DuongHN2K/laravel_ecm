@@ -14,6 +14,7 @@ class CartShow extends Component
         {
             $qty = $product->qty - 1;
             Cart::update($rowId, $qty);
+            $this->emit('cartUpdated');
         }
     }
 
@@ -24,12 +25,14 @@ class CartShow extends Component
         {
             $qty = $product->qty + 1;
             Cart::update($rowId, $qty);
+            $this->emit('cartUpdated');
         }
     } 
 
     public function destroy($id)
     {
         Cart::remove($id);
+        $this->emit('cartUpdated');
         $this->dispatchBrowserEvent('message', [
             'text' => 'Đã bỏ sản phẩm khỏi giỏ hàng',
             'type' => 'success',
@@ -40,6 +43,7 @@ class CartShow extends Component
     public function clearAll()
     {
         Cart::destroy();
+        $this->emit('cartUpdated');
         $this->dispatchBrowserEvent('message', [
             'text' => 'Đã xóa tất cả sản phẩm khỏi giỏ hàng',
             'type' => 'success',
