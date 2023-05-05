@@ -10,6 +10,7 @@ class WishlistShow extends Component
     public function removeWishlistItem(int $wishlist_id)
     {
         Wishlist::where('user_id', auth()->user()->id)->where('id', $wishlist_id)->delete();
+        $this->emit('wishlistUpdated');
         $this->dispatchBrowserEvent('message', [
             'text' => 'Đã xóa sản phẩm khỏi mục ưa thích',
             'type' => 'success',

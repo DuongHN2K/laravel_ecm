@@ -2,6 +2,7 @@
     <div class="py-3 py-md-5 bg-light">
         <div class="container">
             <h4>Mục ưa thích</h4>
+            <hr>
             <div class="row">
                 <div class="col-md-12">
                     <div class="shopping-cart">
@@ -52,7 +53,7 @@
                             </div>
                             @endif  
                         @empty
-                            <h4> Danh sách trống </h4>
+                            <h5> Danh sách trống </h5>
                         @endforelse
                     </div>
                 </div>

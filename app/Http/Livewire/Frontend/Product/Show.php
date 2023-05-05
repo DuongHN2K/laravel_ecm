@@ -31,6 +31,7 @@ class Show extends Component
                     'user_id' => auth()->user()->id,
                     'product_id' => $productId
                 ]);
+                $this->emit('wishlistUpdated');
                 $this->dispatchBrowserEvent('message', [
                     'text' => 'Đã thêm vào mục ưa thích',
                     'type' => 'success',
@@ -74,6 +75,7 @@ class Show extends Component
     public function addToCart($productId, $productName, $qty, $productPrice)
     {
         Cart::add($productId, $productName, $qty, $productPrice)->associate('App\Models\Product');
+        $this->emit('cartUpdated');
         return redirect('cart');
     }
 
