@@ -17,12 +17,13 @@ Route::get('/', [App\Http\Controllers\Frontend\FrontendController::class, 'index
 Route::get('/collections', [App\Http\Controllers\Frontend\FrontendController::class, 'categories']);
 Route::get('/collections/{category_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'products']);
 Route::get('/collections/{category_slug}/{product_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'productShow']);
+Route::get('cart', [App\Http\Controllers\Frontend\CartController::class, 'index']);
 
 Route::middleware(['auth'])->group(function (){
     Route::get('wishlist', [App\Http\Controllers\Frontend\WishlistController::class, 'index']);
 });
 
-Route::get('cart', [App\Http\Controllers\Frontend\CartController::class, 'index']);
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
