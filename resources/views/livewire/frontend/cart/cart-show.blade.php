@@ -100,7 +100,11 @@
                         </span>
                     </h5>
                     <hr>
-                    <a href="{{ url('checkout') }}" class="btn btn-primary w-100"> Thanh toán </a>
+                    @if (Cart::count() > 0)
+                        <a href="{{ url('checkout') }}" class="btn btn-primary w-100"> Thanh toán </a>
+                    @else
+                        <button type="button" class="btn btn-primary w-100" disabled> Thanh toán </button>
+                    @endif
                 </div>
             </div>
         </div>
