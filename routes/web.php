@@ -23,6 +23,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('wishlist', [App\Http\Controllers\Frontend\WishlistController::class, 'index']);
     Route::get('checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index']);
 });
+Route::get('thank-you', [App\Http\Controllers\Frontend\FrontendController::class, 'thankYou']);
 
 Auth::routes();
 
