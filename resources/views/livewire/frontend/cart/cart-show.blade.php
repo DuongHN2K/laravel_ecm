@@ -65,8 +65,13 @@
                                 </div>
                                 <div class="col-md-2 col-5 my-auto">
                                     <div class="remove">
-                                        <a href="" class="btn btn-danger btn-sm" wire:click.prevent="destroy('{{ $cartitem->rowId }}')">
-                                            <i class="fa fa-trash"></i>
+                                        <button type="button" class="btn btn-danger btn-sm" wire:click.prevent="destroy('{{ $cartitem->rowId }}')">
+                                            <span wire:loading.remove wire:target="destroy('{{ $cartitem->rowId }}')">
+                                                <i class="fa fa-trash"></i>
+                                            </span>
+                                            <span wire:loading wire:target="destroy('{{ $cartitem->rowId }}')">
+                                                Đang xóa...
+                                            </span>
                                         </a>
                                     </div>
                                 </div>
