@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Cart;
 
 class LoginController extends Controller
 {
@@ -37,7 +38,14 @@ class LoginController extends Controller
         }
         else
         {
-            return redirect('/');
+            if(Cart::count() > 0)
+            {
+                return redirect('cart');
+            }
+            else
+            {
+                return redirect('/');
+            }
         }
     }
 

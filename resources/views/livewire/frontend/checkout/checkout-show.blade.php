@@ -1,11 +1,59 @@
 <div>
     <div class="py-3 py-md-4 checkout">
         <div class="container">
-            <h4>Thanh toán</h4>
+            <h4>
+                Thanh toán
+                <a href="{{ url('cart') }}" class="btn btn-secondary btn-sm float-end">Quay lại giỏ hàng</a>
+            </h4>
             <hr>
 
             @if ($this->totalAmount != 0)
             <div class="row">
+                <div class="col-md-12">
+                    <div class="shopping-cart">
+                        <div class="cart-header d-none d-sm-none d-mb-block d-lg-block">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>Sản phẩm</h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <h4>Giá</h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <h4>Số lượng</h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <h4>Giá tổng</h4>
+                                </div>
+                            </div>
+                        </div>
+    
+                        @foreach (Cart::content() as $cartitem)
+                        <div class="cart-item">
+                            <div class="row">
+                                <div class="col-md-6 my-auto">
+                                    <a href="{{ url('collections/' . $cartitem->model->category->slug . '/' . $cartitem->model->slug) }}">
+                                        <label class="product-name">
+                                            <img src="{{ asset('images/products/thumbnail/' . $cartitem->model->thumbnail) }}" style="width: 50px; height: 50px" alt="">
+                                            {{ $cartitem->model->name }}
+                                        </label>
+                                    </a>
+                                </div>
+                                <div class="col-md-2 my-auto">
+                                    <label class="price"> {{ $cartitem->model->price }} VNĐ </label>
+                                </div>
+                                <div class="col-md-2 my-auto">
+                                    <label class="price"> {{ $cartitem->qty }} </span>
+                                </div>
+                                <div class="col-md-2 my-auto">
+                                    <label class="price"> {{ $cartitem->subtotal }} VNĐ </label>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+
                 <div class="col-md-12 mb-4">
                     <div class="shadow bg-white p-3">
                         <h4 class="text-primary">
