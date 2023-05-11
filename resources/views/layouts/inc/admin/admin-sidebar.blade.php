@@ -90,6 +90,17 @@
                     </nav>
                 </div>
 
+                <a class="nav-link {{ Request::is('admin/orders') ? 'collapse active':'collapsed' }}" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseOrders" aria-expanded="false" aria-controls="pagesCollapseOrders">
+                    <div class="sb-nav-link-icon"><i class="bi bi-card-list"></i></div>
+                    Quản trị đơn hàng
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse {{ Request::is('admin/orders') ? 'show':'' }}" id="pagesCollapseOrders" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link {{ Request::is('admin/orders') ? 'active':'' }}" href="{{ url('admin/orders') }}">Hiện đơn hàng</a>
+                    </nav>
+                </div>
+
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                     Pages
