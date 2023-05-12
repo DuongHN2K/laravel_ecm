@@ -34,9 +34,12 @@
 <body>
     <div id="app">
         @include('layouts.inc.frontend.frontend-navbar')
+        
         <main>
             @yield('content')
         </main>
+
+        @include('layouts.inc.frontend.frontend-footer')
     </div>
 
     {{-- Scripts --}}
