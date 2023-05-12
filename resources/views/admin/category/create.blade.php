@@ -18,7 +18,7 @@
                 </div>
             @endif
 
-            <form action="{{ url('admin/categories') }}" method="POST">
+            <form action="{{ url('admin/categories') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="h6">Tên danh mục</label>
@@ -40,6 +40,11 @@
                             @endif
                         @endforeach
                     </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="thumbnail" class="h6">Ảnh đại diện (Chọn một ảnh)</label>
+                    <input type="file" required name="thumbnail" class="form-control">
                 </div>
                 
                 <h6>Đặt trạng thái</h6>
