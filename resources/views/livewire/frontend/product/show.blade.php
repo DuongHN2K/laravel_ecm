@@ -8,7 +8,7 @@
             @endif
             <div class="row">
                 <div class="col-md-5 mt-3">
-                    <div class="bg-white border">
+                    <div class="bg-white border" wire:ignore>
                         @if ($product->images)
                         <div class="exzoom" id="exzoom">
                             <!-- Images -->
