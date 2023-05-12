@@ -28,6 +28,9 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 
+    {{-- Exzoom - Product images --}}
+    <link rel="stylesheet" href="{{asset('assets/exzoom/jquery.exzoom.css')}}">
+
     {{-- Livewire styles --}}
     @livewireStyles
 </head>
@@ -47,6 +50,7 @@
     <script src="{{asset('assets/js/scripts.js')}}" crossorigin="anonymous"></script>
     <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script> {{-- JQuery --}}
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script> {{-- AlertifyJS --}}
+    <script src="{{asset('assets/exzoom/jquery.exzoom.js')}}"></script> {{-- Exzoom --}}
 
     <script>
         window.addEventListener('message', event => {
@@ -55,6 +59,8 @@
         })
     </script>
 
+    @yield('script')
     @livewireScripts
+    @stack('scripts')
 </body>
 </html>
