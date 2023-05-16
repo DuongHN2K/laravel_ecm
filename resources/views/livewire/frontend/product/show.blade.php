@@ -48,6 +48,8 @@
                         <p class="product-path">
                             Trang chủ / {{ $product->category->name }} / {{ $product->name }}
                         </p>
+
+                        <p class="product-path">Thương hiệu: {{ $product->brand->name }}</p>
                         
                         <div>
                             <span class="selling-price">{{ $product->price }} VNĐ</span>
@@ -111,6 +113,109 @@
             </div>
         </div>
     </div>
+
+    <div class="py-3 py-md-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Sản phẩm tương tự</h3>
+                    <div class="underline"></div>
+                </div>
+
+                <div class="col-md-12">
+                    @if ($category->relatedProducts->where('id', '!=', $product->id))
+                        <div class="owl-carousel owl-theme four-carousel">
+                            @foreach ($category->relatedProducts->where('id', '!=', $product->id) as $relproditem)
+                                <div class="item mb-3">
+                                    <div class="product-card">
+                                        <div class="product-card-img">
+                                            <img src="{{ asset('images/products/thumbnail/' . $relproditem->thumbnail) }}" alt="thumbnail">
+                                        </div>
+                    
+                                        <div class="product-card-body">
+                                            <p class="product-brand">{{ $relproditem->brand->name }}</p>
+                                            <h5 class="product-name">
+                                                <a href="{{ url('/collections/' . $relproditem->category->slug . '/' . $relproditem->slug ) }}">
+                                                    {{ $relproditem->name }}
+                                                </a>
+                                            </h5>
+                                            <div>
+                                                <span class="selling-price">{{ $relproditem->price }} VNĐ</span>
+                                                {{-- <span class="original-price">$799</span> --}}
+                                            </div>
+                                            <div class="mt-2">
+                                                <a href="" class="btn btn1">Thêm vào giỏ hàng</a>
+                                                <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <div class="p-2">
+                            <h4>Không có sản phẩm nào tương tự</h4>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-3 py-md-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>
+                        Sản phẩm khác của
+                        @if ($product)
+                            {{ $product->brand->name }}
+                        @endif
+                    </h3>
+                    <div class="underline"></div>
+                </div>
+
+                <div class="col-md-12">
+                    @if ($category)
+                        <div class="owl-carousel owl-theme four-carousel">
+                            @foreach ($category->relatedProducts->where('id', '!=', $product->id) as $relproditem)
+                                @if ($relproditem->brand == "$product->brand")
+                                    <div class="item mb-3">
+                                        <div class="product-card">
+                                            <div class="product-card-img">
+                                                <img src="{{ asset('images/products/thumbnail/' . $relproditem->thumbnail) }}" alt="thumbnail">
+                                            </div>
+                        
+                                            <div class="product-card-body">
+                                                <p class="product-brand">{{ $relproditem->brand->name }}</p>
+                                                <h5 class="product-name">
+                                                    <a href="{{ url('/collections/' . $relproditem->category->slug . '/' . $relproditem->slug ) }}">
+                                                        {{ $relproditem->name }}
+                                                    </a>
+                                                </h5>
+                                                <div>
+                                                    <span class="selling-price">{{ $relproditem->price }} VNĐ</span>
+                                                    {{-- <span class="original-price">$799</span> --}}
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a href="" class="btn btn1">Thêm vào giỏ hàng</a>
+                                                    <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    @else
+                        <div class="p-2">
+                            <h4>Thương hiệu không có sản phẩm nào khác</h4>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @push('scripts')
@@ -130,6 +235,24 @@
             // autoplay interval in milliseconds
             "autoPlayTimeout": 2000
         });
+    });
+
+    $('.four-carousel').owlCarousel({
+        loop:false,
+        margin:10,
+        dots:true,
+        nav:false,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:4
+            }
+        }
     });
 </script>
 @endpush
