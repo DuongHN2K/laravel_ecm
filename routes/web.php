@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Frontend\FrontendController::class, 'index']);
-Route::get('/collections', [App\Http\Controllers\Frontend\FrontendController::class, 'categories']);
-Route::get('/collections/{category_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'products']);
-Route::get('/collections/{category_slug}/{product_slug}', [App\Http\Controllers\Frontend\FrontendController::class, 'productShow']);
+Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/collections', 'categories');
+    Route::get('/collections/{category_slug}', 'products');
+    Route::get('/collections/{category_slug}/{product_slug}', 'productShow');
+    Route::get('thank-you', 'thankYou');
+    Route::get('new-arrivals', 'newArrivals');
+    Route::get('trendings', 'trendings');
+});
+
 Route::get('cart', [App\Http\Controllers\Frontend\CartController::class, 'index']);
 
 Route::middleware(['auth'])->group(function (){
@@ -25,8 +31,6 @@ Route::middleware(['auth'])->group(function (){
     Route::get('orders', [App\Http\Controllers\Frontend\OrderController::class, 'index']);
     Route::get('orders/{orderId}', [App\Http\Controllers\Frontend\OrderController::class, 'show']);
 });
-
-Route::get('thank-you', [App\Http\Controllers\Frontend\FrontendController::class, 'thankYou']);
 
 Auth::routes();
 

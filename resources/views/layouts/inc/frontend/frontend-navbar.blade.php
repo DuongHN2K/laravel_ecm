@@ -85,10 +85,10 @@
                         <a class="nav-link" href="{{ url('/collections') }}">Tất cả danh mục</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Hàng mới về</a>
+                        <a class="nav-link" href="{{ url('/new-arrivals') }}">Hàng mới về</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sản phẩm nổi bật</a>
+                        <a class="nav-link" href="{{ url('/trendings') }}">Sản phẩm nổi bật</a>
                     </li>
                 </ul>
             </div>
