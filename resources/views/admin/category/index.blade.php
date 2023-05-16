@@ -27,6 +27,7 @@
                         <th>STT</th>
                         <th>Tên danh mục</th>
                         <th>Slug</th>
+                        <th>Ảnh đại diện</th>
                         <th>Danh mục chính</th>
                         <th>Trạng thái</th>
                         <th class="w-25">Tác vụ</th>
@@ -39,6 +40,9 @@
                             <td>{{ $cateitem->id }}</td>
                             <td>{{ $cateitem->name }}</td>
                             <td>{{ $cateitem->slug }}</td>
+                            <td> 
+                                <img src="{{ asset('images/categories/' . $cateitem->thumbnail) }}" width="70px" height="70px" alt="Thumbnail">
+                            </td>
                             <td>
                                 @if ($cateitem->parent_id == '')
                                     Là danh mục chính

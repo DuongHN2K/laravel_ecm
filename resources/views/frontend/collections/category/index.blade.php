@@ -13,6 +13,10 @@
             <div class="col-6 col-md-3">
                 <div class="category-card">
                     <a href="{{ url('/collections/'.$cateitem->slug) }}">
+                        <div class="category-card-img">
+                            <img src="{{ asset('images/categories/' . $cateitem->thumbnail) }}" class="w-100" alt="Thumbnail">
+                        </div>
+                        
                         <div class="category-card-body">
                             <h5>{{ $cateitem->name }}</h5>
                         </div>

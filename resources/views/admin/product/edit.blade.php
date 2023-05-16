@@ -92,11 +92,11 @@
                 <div class="row">
                     <div class="col-md-3 mb-3">
                         <label for="status">Ẩn</label>
-                        <input type="checkbox" name="status">
+                        <input type="checkbox" name="status" {{ $product->status == 1 ? 'checked':'' }}>
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="trending">Hàng nổi bật</label>
-                        <input type="checkbox" name="trending">
+                        <input type="checkbox" name="trending" {{ $product->trending == 1 ? 'checked':'' }}>
                     </div>
                 </div>
 

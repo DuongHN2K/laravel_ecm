@@ -8,8 +8,33 @@
             @endif
             <div class="row">
                 <div class="col-md-5 mt-3">
-                    <div class="bg-white border">
-                        <img src="{{ asset('images/products/thumbnail/' . $product->thumbnail) }}" class="w-100" alt="Img">
+                    <div class="bg-white border" wire:ignore>
+                        @if ($product->images)
+                        <div class="exzoom" id="exzoom">
+                            <!-- Images -->
+                            <div class="exzoom_img_box">
+                                <ul class='exzoom_img_ul'>
+                                    @php
+                                        $img_files = explode("|", $product->images);
+                                    @endphp
+                                    @foreach ($img_files as $file)
+                                        <li>
+                                            <img src="{{ asset('images/products/product_images/' . $file) }}">
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+
+                            <div class="exzoom_nav"></div>
+                            <!-- Nav Buttons -->
+                            <p class="exzoom_btn">
+                                <a href="javascript:void(0);" class="exzoom_prev_btn"> < </a>
+                                <a href="javascript:void(0);" class="exzoom_next_btn"> > </a>
+                            </p>
+                        </div>
+                        @else
+                            Không có ảnh nào cho sản phẩm
+                        @endif
                     </div>
                 </div>
                 
@@ -87,3 +112,24 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+<script>
+    $(function(){
+        $("#exzoom").exzoom({
+            // thumbnail nav options
+            "navWidth": 60,
+            "navHeight": 60,
+            "navItemNum": 5,
+            "navItemMargin": 7,
+            "navBorder": 1,
+
+            // autoplay
+            "autoPlay": false,
+
+            // autoplay interval in milliseconds
+            "autoPlayTimeout": 2000
+        });
+    });
+</script>
+@endpush

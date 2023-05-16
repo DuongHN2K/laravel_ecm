@@ -38,6 +38,10 @@ class CategoryFormRequest extends FormRequest
                 'nullable',
                 'numeric'
             ],
+            'thumbnail' => [
+                'nullable',
+                'mimes:jpeg,jpg,png'
+            ],
             'navbar_status' => [
                 'nullable'
             ],

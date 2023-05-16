@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\Admin\CategoryFormRequest;
 
 class CategoryController extends Controller
@@ -33,6 +34,14 @@ class CategoryController extends Controller
         $category->navbar_status = $request->navbar_status == true ? '1':'0';
         $category->status = $request->status == true ? '1':'0';
         $category->created_by = Auth::user()->id;
+        {
+            $tn_upload_path = 'images/categories/';
+            $file = $request->file('thumbnail');
+            $extension = $file->getClientOriginalExtension();
+            $tn_filename = time() . '.' . $extension;
+            $file->move($tn_upload_path, $tn_filename);
+            $category->thumbnail = $tn_filename;
+        }
         $category->save();
         return redirect('admin/categories')->with('message', 'Tạo danh mục thành công');
     }
@@ -62,6 +71,20 @@ class CategoryController extends Controller
         $category->navbar_status = $request->navbar_status == true ? '1':'0';
         $category->status = $request->status == true ? '1':'0';
         $category->created_by = Auth::user()->id;
+        if($request->hasFile('thumbnail'))
+        {
+            $tn_upload_path = 'images/categories/';
+            $tn_dest = 'images/categories/' . $category->thumbnail;
+            if(File::exists($tn_dest))
+            {
+                File::delete($tn_dest);
+            }
+            $file = $request->file('thumbnail');
+            $extension = $file->getClientOriginalExtension();
+            $tn_filename = time() . '.' . $extension;
+            $file->move($tn_upload_path, $tn_filename);
+            $category->thumbnail = $tn_filename;
+        }
         $category->save();
         return redirect('admin/categories')->with('message', 'Sửa thông tin danh mục thành công');
     }
