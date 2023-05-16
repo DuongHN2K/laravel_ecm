@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
 
+    {{-- Owl Carousel --}}
+    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/owl.theme.default.min.css')}}">
+
     {{-- AlpineJS --}}
     <script src="//unpkg.com/alpinejs" defer></script>
 
@@ -49,6 +53,7 @@
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
     <script src="{{asset('assets/js/scripts.js')}}" crossorigin="anonymous"></script>
     <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script> {{-- JQuery --}}
+    <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script> {{-- Owl Carousel --}}
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script> {{-- AlertifyJS --}}
     <script src="{{asset('assets/exzoom/jquery.exzoom.js')}}"></script> {{-- Exzoom --}}
 
