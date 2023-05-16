@@ -38,13 +38,21 @@ class LoginController extends Controller
         }
         else
         {
-            if(Cart::count() > 0)
+            if (Auth::user()->status == '1') // Trường hợp người dùng bị khóa
             {
-                return redirect('cart');
+                Auth::logout();
+                return back()->with('status', 'Bạn đã bị khóa quyền truy cập! Vui lòng thử lại sau.');
             }
             else
             {
-                return redirect('/');
+                if(Cart::count() > 0)
+                {
+                    return redirect('cart');
+                }
+                else
+                {
+                    return redirect('/');
+                }
             }
         }
     }
