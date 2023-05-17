@@ -33,6 +33,8 @@ Route::middleware(['auth'])->group(function (){
     Route::get('orders/{orderId}', [App\Http\Controllers\Frontend\OrderController::class, 'show']);
     Route::get('profile', [App\Http\Controllers\Frontend\UserController::class, 'index']);
     Route::post('profile', [App\Http\Controllers\Frontend\UserController::class, 'updateUserDetails']);
+    Route::get('change-password', [App\Http\Controllers\Frontend\UserController::class, 'editPassword']);
+    Route::post('change-password', [App\Http\Controllers\Frontend\UserController::class, 'updatePassword']);
 });
 
 Auth::routes();

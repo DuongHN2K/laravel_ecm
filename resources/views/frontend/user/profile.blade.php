@@ -7,7 +7,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <h4>Thông tin cá nhân</h4>
+                <h4>
+                    Thông tin cá nhân
+                    <a href="{{ url('change-password') }}" class="btn btn-warning float-end">Đổi mật khẩu</a>
+                </h4>
                 <div class="underline mb-4"></div>
             </div>
 

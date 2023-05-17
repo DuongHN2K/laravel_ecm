@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -38,5 +39,29 @@ class UserController extends Controller
             ]
         );
         return redirect()->back()->with('message', 'Cập nhật thông tin thành công');
+    }
+
+    public function editPassword()
+    {
+        return view('frontend.user.change-password');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required','string','min:8'],
+            'password' => ['required', 'string', 'min:8', 'confirmed']
+        ]);
+
+        $currentPasswordStatus = Hash::check($request->current_password, auth()->user()->password);
+
+        if($currentPasswordStatus){
+            User::findOrFail(Auth::user()->id)->update([
+                'password' => Hash::make($request->password),
+            ]);
+            return redirect()->back()->with('message','Cập nhật mật khẩu thành công');
+        }else{
+            return redirect()->back()->with('message','Mật khẩu mới không được trùng với mật khẩu cũ');
+        }
     }
 }
