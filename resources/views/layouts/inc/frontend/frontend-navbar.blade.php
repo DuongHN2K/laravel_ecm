@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
-                    <h5 class="brand-name">LaraKon</h5>
+                    <img src="{{ asset('images/LaraKonLogo.png') }}" width="123px" height="60px" alt="logo">
                 </div>
                 <div class="col-md-5 my-auto">
                     <form action="{{ url('search') }}" method="GET" role="search">
@@ -46,7 +46,7 @@
                                     <i class="fa fa-user"></i> {{ Auth::user()->name }}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('profile') }}"><i class="fa fa-user"></i> Thông tin cá nhân</a></li>
                                     <li><a class="dropdown-item" href="{{ url('orders') }}"><i class="fa fa-list"></i> Đơn hàng</a></li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
