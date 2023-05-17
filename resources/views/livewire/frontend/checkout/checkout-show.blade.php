@@ -97,7 +97,6 @@
                                 <div class="d-md-flex align-items-start">
                                     <div class="nav col-md-3 flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                         <button class="nav-link active fw-bold" id="cashOnDeliveryTab-tab" data-bs-toggle="pill" data-bs-target="#cashOnDeliveryTab" type="button" role="tab" aria-controls="cashOnDeliveryTab" aria-selected="true">Tiền mặt</button>
-                                        <button class="nav-link fw-bold" id="onlinePayment-tab" data-bs-toggle="pill" data-bs-target="#onlinePayment" type="button" role="tab" aria-controls="onlinePayment" aria-selected="false">Trực tuyến</button>
                                     </div>
                                     <div class="tab-content col-md-9" id="v-pills-tabContent">
                                         <div class="tab-pane active show fade" id="cashOnDeliveryTab" role="tabpanel" aria-labelledby="cashOnDeliveryTab-tab" tabindex="0">
@@ -111,12 +110,6 @@
                                                     Đang xác nhận...
                                                 </span>
                                             </button>
-
-                                        </div>
-                                        <div class="tab-pane fade" id="onlinePayment" role="tabpanel" aria-labelledby="onlinePayment-tab" tabindex="0">
-                                            <h6>Thanh toán trực tuyến</h6>
-                                            <hr/>
-                                            <button type="button" wire:loading.attr="disabled" class="btn btn-warning">Thanh toán ngay bây giờ</button>
                                         </div>
                                     </div>
                                 </div>
