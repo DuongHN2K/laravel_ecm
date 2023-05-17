@@ -17,6 +17,19 @@ class FrontendController extends Controller
         return view('frontend.index', compact('trendingProducts', 'newArrivals'));
     }
 
+    public function searchProducts(Request $request)
+    {
+        if ($request->search) 
+        {
+            $searchProducts = Product::where('name', 'LIKE', '%'.$request->search.'%')->paginate(10);
+            return view('frontend.pages.search', compact('searchProducts'));
+        } 
+        else 
+        {
+            return redirect()->back();
+        }
+    }
+
     public function newArrivals()
     {
         $newArrivals = Product::latest()->take(12)->get();

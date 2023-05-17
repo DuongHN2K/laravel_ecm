@@ -21,6 +21,7 @@ Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->grou
     Route::get('thank-you', 'thankYou');
     Route::get('new-arrivals', 'newArrivals');
     Route::get('trendings', 'trendings');
+    Route::get('search', 'searchProducts');
 });
 
 Route::get('cart', [App\Http\Controllers\Frontend\CartController::class, 'index']);
