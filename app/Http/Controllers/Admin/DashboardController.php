@@ -23,12 +23,11 @@ class DashboardController extends Controller
         $adminsTotal = User::where('user_type', '1')->count();
         $usersTotal = User::where('user_type', '0')->count();
 
-        $todayDate = Carbon::now()->format('d-m-Y');
         $thisMonth = Carbon::now()->format('m');
         $thisYear = Carbon::now()->format('Y');
 
         $ordersTotal = Order::count();
-        $todayOrdersTotal = Order::whereDate('created_at', $todayDate)->count();
+        $todayOrdersTotal = Order::whereDate('created_at', Carbon::today())->count();
         $thisMonthOrdersTotal = Order::whereMonth('created_at', $thisMonth)->count();
         $thisYearOrdersTotal = Order::whereYear('created_at', $thisYear)->count();
 

@@ -17,7 +17,6 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="product-card-img">
-                                    <label class="stock bg-danger">Mới</label>
                                     <img src="{{ asset('images/products/thumbnail/' . $proditem->thumbnail) }}" alt="thumbnail">
                                 </div>
                             </div>
@@ -38,8 +37,9 @@
                                     <p style="height: 45px; overflow: hidden">
                                         <b>Mô tả: </b> {!! $proditem->description !!}
                                     </p>
-                                    <a href="{{ url('/collections/' . $proditem->category->slug . '/' . $proditem->slug ) }}" class="btn btn-outline-primary">
-                                        Chi tiết
+                                    <a href="{{ url('/collections/' . $proditem->category->slug . '/' . $proditem->slug ) }}" class="btn btn1">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        Mua ngay
                                     </a>
                                 </div>
                             </div>

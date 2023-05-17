@@ -21,7 +21,7 @@ class UserController extends Controller
         $request->validate([
             'username' => ['required', 'string'],
             'phone' => ['required', 'digits:10'],
-            'postal_code' => ['required', 'digits:5'],
+            'postal_code' => ['required', 'max:6'],
             'address' => ['required', 'string', 'max:499'],
         ]);
         $user = User::findOrFail(Auth::user()->id);
