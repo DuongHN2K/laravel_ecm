@@ -14,7 +14,8 @@ class BrandController extends Controller
     public function index()
     {
         $brand = Brand::all();
-        return view('admin.brand.index', compact('brand')); 
+        $orderCount = 1;
+        return view('admin.brand.index', compact('brand', 'orderCount')); 
     }
 
     public function create()

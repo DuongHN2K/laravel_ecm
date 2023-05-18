@@ -28,36 +28,36 @@
                         <th>Tên danh mục</th>
                         <th>Slug</th>
                         <th>Ảnh đại diện</th>
-                        <th>Danh mục chính</th>
+                        {{-- <th>Danh mục chính</th> --}}
                         <th>Trạng thái</th>
-                        <th class="w-25">Tác vụ</th>
+                        <th>Tác vụ</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     @foreach ($category as $cateitem)
                         <tr>
-                            <td>{{ $cateitem->id }}</td>
+                            <td>{{ $orderCount++ }}</td>
                             <td>{{ $cateitem->name }}</td>
                             <td>{{ $cateitem->slug }}</td>
                             <td> 
                                 <img src="{{ asset('images/categories/' . $cateitem->thumbnail) }}" width="70px" height="70px" alt="Thumbnail">
                             </td>
-                            <td>
+                            {{-- <td>
                                 @if ($cateitem->parent_id == '')
                                     Là danh mục chính
                                 @else
                                     {{ $cateitem->parent->name }}
                                 @endif
-                            </td>
+                            </td> --}}
                             <td>{{ $cateitem->status == '1' ? 'Ẩn':'Hiện' }}</td>
                             <td>
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    {{-- <div class="col-md-3">
                                         <a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="right" title="Chi tiết">
                                             <i class="bi bi-info-circle"></i>
                                         </a>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="col-md-3">
                                         <a href="{{ url('admin/categories/'.$cateitem->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">

@@ -15,7 +15,8 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        return view('admin.category.index', compact('category'));
+        $orderCount = 1;
+        return view('admin.category.index', compact('category', 'orderCount'));
     }
 
     public function create()
