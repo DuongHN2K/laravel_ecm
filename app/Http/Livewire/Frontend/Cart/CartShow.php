@@ -21,11 +21,19 @@ class CartShow extends Component
     public function quantityIncrement($rowId)
     {
         $product = Cart::get($rowId);
-        if ($product->qty < 10) 
+        if ($product->qty < 10 && $product->qty < $product->model->stock_quantity) 
         {
             $qty = $product->qty + 1;
             Cart::update($rowId, $qty);
             $this->emit('cartUpdated');
+        }
+        else
+        {
+            $this->dispatchBrowserEvent('message', [
+                'text' => 'Sản phẩm không đủ số lượng',
+                'type' => 'warning',
+                'status' => 409
+            ]);
         }
     } 
 

@@ -36,7 +36,7 @@
             
             <div class="mb-3">
                 <label class="h6">Mô tả:</label>
-                <p> {{ $product->description }} </p>
+                <p> {!! $product->description !!} </p>
             </div>
 
             <div class="row">

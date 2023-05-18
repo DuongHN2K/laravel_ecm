@@ -74,9 +74,20 @@ class Show extends Component
 
     public function addToCart($productId, $productName, $qty, $productPrice)
     {
-        Cart::add($productId, $productName, $qty, $productPrice)->associate('App\Models\Product');
-        $this->emit('cartUpdated');
-        return redirect('cart');
+        if ($qty > $this->product->stock_quantity)
+        {
+            $this->dispatchBrowserEvent('message', [
+                'text' => 'Sản phẩm không đủ số lượng',
+                'type' => 'warning',
+                'status' => 409
+            ]);
+        }
+        else
+        {
+            Cart::add($productId, $productName, $qty, $productPrice)->associate('App\Models\Product');
+            $this->emit('cartUpdated');
+            return redirect('cart');
+        }
     }
 
     public function render()
