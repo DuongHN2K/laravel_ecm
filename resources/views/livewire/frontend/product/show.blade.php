@@ -6,7 +6,16 @@
                     {{ session('message') }}
                 </div>
             @endif
+
             <div class="row">
+                <div class="product-view">
+                    <p class="product-path">
+                        <a href="{{ url('/') }}">Trang chủ</a>/ 
+                        <a href="{{ url('collections/'.$category->slug) }}">{{ $product->category->name }}</a>/ 
+                        {{ $product->name }}
+                    </p>
+                </div>
+
                 <div class="col-md-5 mt-3">
                     <div class="bg-white border" wire:ignore>
                         @if ($product->images)
@@ -44,15 +53,11 @@
                             {{ $product->name }}
                         </h4>
                         <hr>
-                        
-                        <p class="product-path">
-                            Trang chủ / {{ $product->category->name }} / {{ $product->name }}
-                        </p>
 
                         <p class="product-path">Thương hiệu: {{ $product->brand->name }}</p>
                         
                         <div>
-                            <span class="selling-price">{{ $product->price }} VNĐ</span>
+                            <span class="selling-price">{{ number_format($product->price, 0, ',', '.') }} đ</span>
                             {{-- <span class="original-price">$499</span> --}}
                         </div>
                         

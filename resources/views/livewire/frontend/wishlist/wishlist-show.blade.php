@@ -34,7 +34,7 @@
                                         </a>
                                     </div>
                                     <div class="col-md-2 my-auto">
-                                        <label class="price"> {{$wlitem->product->price}} VNĐ </label>
+                                        <label class="price"> {{ number_format($wlitem->product->price, 0, ',', '.') }} đ</label>
                                     </div>
                                     
                                     <div class="col-md-4 col-12 my-auto">

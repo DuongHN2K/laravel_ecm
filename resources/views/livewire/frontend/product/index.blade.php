@@ -37,7 +37,7 @@
                                 </a>
                             </h5>
                             <div>
-                                <span class="selling-price">{{ $proditem->price }} VNĐ</span>
+                                <span class="selling-price">{{ number_format($proditem->price, 0, ',', '.') }} đ</span>
                                 {{-- <span class="original-price">$799</span> --}}
                             </div>
                             <div class="mt-2">

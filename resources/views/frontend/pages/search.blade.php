@@ -30,13 +30,10 @@
                                         </a>
                                     </h5>
                                     <div>
-                                        <span class="selling-price">{{ $proditem->price }} VNĐ</span>
+                                        <span class="selling-price">{{ number_format($proditem->price, 0, ',', '.') }} đ</span>
                                         {{-- <span class="original-price">$799</span> --}}
                                     </div>
                                     
-                                    <p style="height: 45px; overflow: hidden">
-                                        <b>Mô tả: </b> {!! $proditem->description !!}
-                                    </p>
                                     <a href="{{ url('/collections/' . $proditem->category->slug . '/' . $proditem->slug ) }}" class="btn btn1">
                                         <i class="fa fa-shopping-cart"></i>
                                         Mua ngay
