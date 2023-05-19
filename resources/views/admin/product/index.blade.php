@@ -40,7 +40,7 @@
                             <td>{{ $orderCount++ }}</td>
                             <td>{{ $proditem->name }}</td>
                             <td>{{ $proditem->category->name }}</td>
-                            <td>{{ number_format($proditem->price) }} đ</td>
+                            <td>{{ number_format($proditem->price, 0, ".", ".") }} đ</td>
                             <td>{{ $proditem->stock_quantity }}</td>
                             <td>{{ $proditem->status == '1' ? 'Ẩn':'Hiện' }}</td>
                             <td>

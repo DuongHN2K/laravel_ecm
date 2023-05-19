@@ -27,10 +27,10 @@
                 
                 <h6>Đặt trạng thái</h6>
                 <div class="row">
-                    <div class="col-md-3 mb-3">
+                    {{-- <div class="col-md-3 mb-3">
                         <label for="navbar_status">Thanh điều hướng</label>
                         <input type="checkbox" name="navbar_status">
-                    </div>
+                    </div> --}}
                     <div class="col-md-3 mb-3">
                         <label for="status">Ẩn</label>
                         <input type="checkbox" name="status">
