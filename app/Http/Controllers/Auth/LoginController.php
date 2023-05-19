@@ -32,7 +32,7 @@ class LoginController extends Controller
 
     public function authenticated()
     {
-        if(Auth::user()->user_type == '1') // 1 == Admin
+        if(Auth::user()->user_type == '1' || Auth::user()->user_type == '2') // 1 == Admin; 2 == Elder Admin
         {
             return redirect('/admin/dashboard')->with('status', 'Đăng nhập trang Admin thành công.');
         }
