@@ -14,7 +14,8 @@ class BrandController extends Controller
     public function index()
     {
         $brand = Brand::all();
-        return view('admin.brand.index', compact('brand')); 
+        $orderCount = 1;
+        return view('admin.brand.index', compact('brand', 'orderCount')); 
     }
 
     public function create()
@@ -27,7 +28,7 @@ class BrandController extends Controller
         $data = $request->validated();
         $brand = new Brand();
         $brand->name = $data['name'];
-        $brand->navbar_status = $request->navbar_status == true ? '1':'0';
+        $brand->navbar_status = '0';
         $brand->status = $request->status == true ? '1':'0';
         $brand->created_by = Auth::user()->id;
         $brand->save();
@@ -45,7 +46,7 @@ class BrandController extends Controller
         $data = $request->validated();
         $brand = Brand::find($brand_id);
         $brand->name = $data['name'];
-        $brand->navbar_status = $request->navbar_status == true ? '1':'0';
+        $brand->navbar_status = '0';
         $brand->status = $request->status == true ? '1':'0';
         $brand->created_by = Auth::user()->id;
         $brand->update();

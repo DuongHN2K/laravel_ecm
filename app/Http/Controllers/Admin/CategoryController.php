@@ -15,7 +15,8 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        return view('admin.category.index', compact('category'));
+        $orderCount = 1;
+        return view('admin.category.index', compact('category', 'orderCount'));
     }
 
     public function create()
@@ -31,7 +32,7 @@ class CategoryController extends Controller
         $category->name = $data['name'];
         $category->slug = $data['slug'];
         $category->parent_id = $data['parent_category'];
-        $category->navbar_status = $request->navbar_status == true ? '1':'0';
+        $category->navbar_status = '0';
         $category->status = $request->status == true ? '1':'0';
         $category->created_by = Auth::user()->id;
         {
@@ -68,7 +69,7 @@ class CategoryController extends Controller
         $category->name = $data['name'];
         $category->slug = $data['slug'];
         $category->parent_id = $data['parent_category'];
-        $category->navbar_status = $request->navbar_status == true ? '1':'0';
+        $category->navbar_status = '0';
         $category->status = $request->status == true ? '1':'0';
         $category->created_by = Auth::user()->id;
         if($request->hasFile('thumbnail'))

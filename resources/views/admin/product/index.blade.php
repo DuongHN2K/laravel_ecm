@@ -26,24 +26,22 @@
                     <tr>
                         <th>STT</th>
                         <th>Tên sản phẩm</th>
-                        <th>Ảnh đại diện</th>
                         <th>Danh mục</th>
                         <th>Giá bán</th>
+                        <th>Số lượng còn lại</th>
                         <th>Trạng thái</th>
-                        <th>Tác vụ</th>
+                        <th style="width:18%">Tác vụ</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     @foreach ($product as $proditem)
                         <tr>
-                            <td>{{ $proditem->id }}</td>
+                            <td>{{ $orderCount++ }}</td>
                             <td>{{ $proditem->name }}</td>
-                            <td> 
-                                <img src="{{ asset('images/products/thumbnail/' . $proditem->thumbnail) }}" width="70px" height="70px" alt="Thumbnail">
-                            </td>
                             <td>{{ $proditem->category->name }}</td>
-                            <td>{{ $proditem->price }} VNĐ</td>
+                            <td>{{ number_format($proditem->price, 0, ",", ".") }} đ</td>
+                            <td>{{ $proditem->stock_quantity }}</td>
                             <td>{{ $proditem->status == '1' ? 'Ẩn':'Hiện' }}</td>
                             <td>
                                 <div class="row">

@@ -20,7 +20,7 @@ class DashboardController extends Controller
         $categoriesTotal = Category::count();
         $brandsTotal = Brand::count();
         $allUsersTotal = User::count();
-        $adminsTotal = User::where('user_type', '1')->count();
+        $adminsTotal = User::where('user_type', '!=', '0')->count();
         $usersTotal = User::where('user_type', '0')->count();
 
         $thisMonth = Carbon::now()->format('m');

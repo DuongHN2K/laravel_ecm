@@ -76,7 +76,7 @@
             <div class="row">
                 <div class="mb-3 col-md-6">
                     <label class="h6">Trạng thái:</label>
-                    <p> {{ $product->status == '1' ? 'Khóa':'Mở' }} </p>
+                    <p> {{ $product->status == '1' ? 'Ẩn':'Hiện' }} </p>
                 </div>
 
                 <div class="mb-3 col-md-6">

@@ -21,7 +21,7 @@
             <table class="table table-bordered" id="myTable">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>STT</th>
                         <th>Tên người dùng</th>
                         <th>Email</th>
                         <th>Số điện thoại</th>
@@ -34,7 +34,7 @@
                 <tbody>
                     @foreach ($user as $useritem)
                         <tr>
-                            <td>{{ $useritem->id }}</td>
+                            <td>{{ $orderCount++ }}</td>
                             <td>{{ $useritem->name }}</td>
                             <td>{{ $useritem->email }}</td>
                             <td>{{ $useritem->phone_number }}</td>

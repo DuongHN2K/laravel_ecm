@@ -34,7 +34,7 @@
                 <tbody>
                     @foreach ($brand as $branditem)
                         <tr>
-                            <td>{{ $branditem->id }}</td>
+                            <td>{{ $orderCount++ }}</td>
                             <td>{{ $branditem->name }}</td>
                             <td>{{ $branditem->status == '1' ? 'Ẩn':'Hiện' }}</td>
                             {{--                             
