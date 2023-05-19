@@ -78,7 +78,7 @@
                     <input type="file" name="images[]" multiple class="form-control">
                 </div>
 
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="discounts" class="h6">Chương trình khuyến mại</label>
                     <select name="discount" id="discount" class="form-select">
                         <option value="">Không có</option>
@@ -86,7 +86,7 @@
                             <option value="{{ $disitem->id }}" {{ $product->discount_id == $disitem->id ? 'selected':'' }}>{{ $disitem->name }}</option>
                         @endforeach
                     </select>
-                </div>
+                </div> --}}
 
                 <h6>Đặt trạng thái</h6>
                 <div class="row">
