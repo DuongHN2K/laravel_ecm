@@ -60,9 +60,9 @@
                                     <img src="{{ asset('images/products/thumbnail/' . $orderitem->product->thumbnail) }}" style="width: 70px; height: 70px" alt="">
                                 </td>
                                 <td>{{ $orderitem->product->name }}</td>
-                                <td>{{ number_format($orderitem->price, 0, ".", ".") }} đ</td>
+                                <td>{{ number_format($orderitem->price, 0, ",", ".") }} đ</td>
                                 <td>{{ $orderitem->quantity }}</td>
-                                <td class="fw-bold">{{ number_format($orderitem->quantity * $orderitem->price, 0, ".", ".") }} đ</td>
+                                <td class="fw-bold">{{ number_format($orderitem->quantity * $orderitem->price, 0, ",", ".") }} đ</td>
                                 @php
                                     $totalPrice += $orderitem->price * $orderitem->quantity;
                                 @endphp
@@ -70,7 +70,7 @@
                             @endforeach
                             <tr>
                                 <td colspan="5" class="fw-bold">Tổng tiền đơn hàng:</td>
-                                <td colspan="1" class="fw-bold">{{ number_format($totalPrice, 0, ".", ".") }} đ</td>
+                                <td colspan="1" class="fw-bold">{{ number_format($totalPrice, 0, ",", ".") }} đ</td>
                             </tr>
                         </tbody>
                     </table>

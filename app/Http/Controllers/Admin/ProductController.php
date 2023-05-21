@@ -75,7 +75,7 @@ class ProductController extends Controller
         $product->images = implode("|", $images);
         $product->price = $data['price'];
         $product->stock_quantity = $data['stock_quantity'];
-        $product->discount_id = $data['discount'];
+        // $product->discount_id = $data['discount'];
         $product->status = $request->status == true ? '1':'0';
         $product->trending = $request->trending == true ? '1':'0';
         $product->created_by = Auth::user()->id;
@@ -163,7 +163,7 @@ class ProductController extends Controller
         }
         $product->price = $data['price'];
         $product->stock_quantity = $data['stock_quantity'];
-        $product->discount_id = $data['discount'];
+        // $product->discount_id = $data['discount'];
         $product->status = $request->status == true ? '1':'0';
         $product->trending = $request->trending == true ? '1':'0';
         $product->created_by = Auth::user()->id;

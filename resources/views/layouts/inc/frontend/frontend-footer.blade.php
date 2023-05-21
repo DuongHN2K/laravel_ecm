@@ -2,14 +2,7 @@
     <div class="footer-area">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
-                    <h4 class="footer-heading">LaraKon</h4>
-                    <div class="footer-underline"></div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet risus sagittis, eleifend urna in, scelerisque dui. Nunc dignissim leo at magna egestas congue.
-                    </p>
-                </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <h4 class="footer-heading">Đường dẫn</h4>
                     <div class="footer-underline"></div>
                     <div class="mb-2"><a href="{{ url('/') }}" class="text-white">Trang chủ</a></div>
@@ -18,7 +11,7 @@
                     <div class="mb-2"><a href="{{ url('blog') }}" class="text-white">Bài viết</a></div>
                     <div class="mb-2"><a href="#" class="text-white">Bản đồ</a></div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <h4 class="footer-heading">Mua hàng ngay</h4>
                     <div class="footer-underline"></div>
                     <div class="mb-2"><a href="{{ url('collections') }}" class="text-white">Danh mục</a></div>
@@ -26,12 +19,12 @@
                     <div class="mb-2"><a href="" class="text-white">Hàng mới về</a></div>
                     <div class="mb-2"><a href="{{ url('cart') }}" class="text-white">Giỏ hàng</a></div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <h4 class="footer-heading">Liên hệ chúng tôi</h4>
                     <div class="footer-underline"></div>
                     <div class="mb-2">
                         <p>
-                            <i class="fa fa-map-marker"></i> 1240 Diệu Hạnh Rue, Hà Nội, 11414
+                            <i class="fa fa-map-marker"></i> 124 Diệu Hạnh, Hà Nội
                         </p>
                     </div>
                     <div class="mb-2">

@@ -3,7 +3,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
-                    <img src="{{ asset('images/LaraKonLogo.png') }}" width="123px" height="60px" alt="logo">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('images/LaraKonLogo.png') }}" width="123px" height="60px" alt="logo">
+                    </a>
                 </div>
                 <div class="col-md-5 my-auto">
                     <form action="{{ url('search') }}" method="GET" role="search">
@@ -78,9 +80,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">Trang chủ</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/collections') }}">Tất cả danh mục</a>
                     </li>

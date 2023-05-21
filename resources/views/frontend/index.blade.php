@@ -3,7 +3,7 @@
 @section('title', 'LaraKon Home')
 
 @section('content')
-<div class="py-5 bg-white">
+{{-- <div class="py-5 bg-white">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 text-center">
@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <div class="py-5">
     <div class="container">
@@ -34,7 +34,6 @@
                     <div class="item">
                         <div class="product-card">
                             <div class="product-card-img">
-                                <label class="stock bg-danger">Mới</label>
                                 <img src="{{ asset('images/products/thumbnail/' . $proditem->thumbnail) }}" alt="thumbnail">
                             </div>
         
@@ -46,7 +45,7 @@
                                     </a>
                                 </h5>
                                 <div>
-                                    <span class="selling-price">{{ $proditem->price }} VNĐ</span>
+                                    <span class="selling-price">{{ number_format($proditem->price, 0, ',', '.') }} đ</span>
                                     {{-- <span class="original-price">$799</span> --}}
                                 </div>
                                 <div class="mt-2">
@@ -101,7 +100,7 @@
                                     </a>
                                 </h5>
                                 <div>
-                                    <span class="selling-price">{{ $proditem->price }} VNĐ</span>
+                                    <span class="selling-price">{{ number_format($proditem->price, 0, ',', '.') }} đ</span>
                                     {{-- <span class="original-price">$799</span> --}}
                                 </div>
                                 <div class="mt-2">

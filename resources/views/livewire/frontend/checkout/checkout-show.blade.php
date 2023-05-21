@@ -40,13 +40,13 @@
                                     </a>
                                 </div>
                                 <div class="col-md-2 my-auto">
-                                    <label class="price"> {{ $cartitem->model->price }} VNĐ </label>
+                                    <label class="price"> {{ number_format($cartitem->model->price, 0, ',', '.') }} đ</label>
                                 </div>
                                 <div class="col-md-2 my-auto">
                                     <label class="price"> {{ $cartitem->qty }} </span>
                                 </div>
                                 <div class="col-md-2 my-auto">
-                                    <label class="price"> {{ $cartitem->subtotal }} VNĐ </label>
+                                    <label class="price"> {{ number_format($cartitem->subtotal, 0, ',', '.') }} đ</label>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                     <div class="shadow bg-white p-3">
                         <h4 class="text-primary">
                             Tổng tiền đơn hàng:
-                            <span class="float-end">{{ $this->totalAmount }} VNĐ</span>
+                            <span class="float-end">{{ $this->totalAmount }} đ</span>
                         </h4>
                         <hr>
                         <small>* Hàng sẽ được giao đến trong 3-5 ngày.</small>

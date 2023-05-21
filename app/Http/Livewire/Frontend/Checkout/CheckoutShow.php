@@ -77,7 +77,7 @@ class CheckoutShow extends Component
 
     public function totalAmount()
     {
-        $this->totalAmount = Cart::subtotal();
+        $this->totalAmount = Cart::subtotal(0, ',', '.');
         return $this->totalAmount;
     }
 

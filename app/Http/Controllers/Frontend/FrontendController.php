@@ -26,7 +26,8 @@ class FrontendController extends Controller
         } 
         else 
         {
-            return redirect()->back();
+            $searchProducts = Product::paginate(10);
+            return view('frontend.pages.search', compact('searchProducts'));
         }
     }
 

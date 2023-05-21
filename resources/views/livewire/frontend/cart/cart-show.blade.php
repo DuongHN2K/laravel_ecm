@@ -43,7 +43,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-2 my-auto">
-                                    <label class="price"> {{ $cartitem->model->price }} VNĐ </label>
+                                    <label class="price">{{ number_format($cartitem->model->price, 0, ',', '.') }} đ</label>
                                 </div>
                                 <div class="col-md-2 col-7 my-auto">
                                     <div class="quantity">
@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-2 my-auto">
-                                    <label class="price"> {{ $cartitem->subtotal }} VNĐ </label>
+                                    <label class="price">{{ number_format($cartitem->subtotal, 0, ',', '.') }} đ</label>
                                 </div>
                                 <div class="col-md-2 col-5 my-auto">
                                     <div class="remove">
@@ -101,7 +101,8 @@
                     <h5>
                         Tổng tiền:
                         <span class="float-end">
-                            {{ Cart::subtotal() }} VNĐ
+                            
+                            {{ Cart::subtotal(0, ',', '.') }} đ
                         </span>
                     </h5>
                     <hr>
