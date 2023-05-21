@@ -3,7 +3,7 @@
 @section('title', 'LaraKon Home')
 
 @section('content')
-<div class="py-5 bg-white">
+{{-- <div class="py-5 bg-white">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 text-center">
@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <div class="py-5">
     <div class="container">
