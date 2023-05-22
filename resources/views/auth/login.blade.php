@@ -65,14 +65,22 @@
                                     {{ __('Đăng nhập') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
+                                {{-- @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Quên mật khẩu?') }}
                                     </a>
-                                @endif
+                                @endif --}}
                             </div>
                         </div>
                     </form>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6 offset-md-4">
+                            <a class="btn btn-link" href="{{ route('register') }}">
+                                {{ __('Bạn chưa có tài khoản? Đăng ký ngay') }}
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

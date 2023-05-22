@@ -8,8 +8,11 @@
 <div class="py-3 py-md-5 bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h4 class="mb-4">{{ $category->name }}</h4>
+            <div class="product-view">
+                <p class="product-path">
+                    <a href="{{ url('/') }}">Trang chủ</a>/ 
+                    {{ $category->name }}
+                </p>
             </div>
             
             <livewire:frontend.product.index :product="$product" :category="$category" />
