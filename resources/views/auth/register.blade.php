@@ -84,6 +84,14 @@
                                 </button>
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6 offset-md-4">
+                                <a class="btn btn-link" href="{{ route('login') }}">
+                                    {{ __('Bạn đã có tài khoản? Đăng nhập ngay') }}
+                                </a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
