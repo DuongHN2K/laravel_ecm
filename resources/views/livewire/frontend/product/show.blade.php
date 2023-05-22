@@ -149,8 +149,10 @@
                                                 {{-- <span class="original-price">$799</span> --}}
                                             </div>
                                             <div class="mt-2">
-                                                <a href="" class="btn btn1">Thêm vào giỏ hàng</a>
-                                                <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
+                                                <a href="{{ url('/collections/' . $relproditem->category->slug . '/' . $relproditem->slug ) }}" class="btn btn1">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                    Mua ngay
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -203,8 +205,10 @@
                                                     {{-- <span class="original-price">$799</span> --}}
                                                 </div>
                                                 <div class="mt-2">
-                                                    <a href="" class="btn btn1">Thêm vào giỏ hàng</a>
-                                                    <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
+                                                    <a href="{{ url('/collections/' . $relproditem->category->slug . '/' . $relproditem->slug ) }}" class="btn btn1">
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                        Mua ngay
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
