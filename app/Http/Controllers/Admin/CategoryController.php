@@ -31,7 +31,7 @@ class CategoryController extends Controller
         $category = new Category();
         $category->name = $data['name'];
         $category->slug = $data['slug'];
-        $category->parent_id = $data['parent_category'];
+        $category->parent_id = NULL;
         $category->navbar_status = '0';
         $category->status = $request->status == true ? '1':'0';
         $category->created_by = Auth::user()->id;
@@ -68,7 +68,7 @@ class CategoryController extends Controller
         $category = Category::find($category_id);
         $category->name = $data['name'];
         $category->slug = $data['slug'];
-        $category->parent_id = $data['parent_category'];
+        $category->parent_id = NULL;
         $category->navbar_status = '0';
         $category->status = $request->status == true ? '1':'0';
         $category->created_by = Auth::user()->id;
