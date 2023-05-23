@@ -74,7 +74,7 @@
                                 <span class="btn btn1" wire:click="quantityDecrement">
                                     <i class="fa fa-minus"></i>
                                 </span>
-                                <input type="text" wire:model="qty" readonly value="{{ $this->qty }}" class="input-quantity" />
+                                <input type="text" wire:model="qty" value="{{ $this->qty }}" class="input-quantity" />
                                 <span class="btn btn1" wire:click="quantityIncrement">
                                     <i class="fa fa-plus"></i>
                                 </span>
@@ -82,12 +82,23 @@
                         </div>
                         
                         <div class="mt-2">
+                            @if ($product->stock_quantity > 0)
                             <button 
                             type="button" class="btn btn1"
                             wire:click.prevent="addToCart({{ $product->id }}, '{{ $product->name }}', {{ $this->qty }}, {{ $product->price }})"
                             > 
                                 <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng 
                             </button>
+                            @else
+                            <button 
+                            type="button" class="btn btn1"
+                            disabled
+                            > 
+                                <i class="fa fa-shopping-cart"></i> Liên hệ 
+                            </button>
+                            @endif
+                            
+
                             @if ($wlitem->exists())
                             <button type="button" wire:click="removeFromWishlist({{ $product->id }})" class="btn btn1">
                                 <span wire:target="removeFromWishlist">

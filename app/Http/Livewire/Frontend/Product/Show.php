@@ -59,10 +59,7 @@ class Show extends Component
 
     public function quantityIncrement()
     {
-        if ($this->qty < 10) 
-        {
-            $this->qty++;
-        }
+        $this->qty++;
     }
 
     public function mount($category, $product)
