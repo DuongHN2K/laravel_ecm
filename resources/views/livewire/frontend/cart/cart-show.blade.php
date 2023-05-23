@@ -107,7 +107,7 @@
                     </h5>
                     <hr>
                     @if (Cart::count() > 0)
-                        <a href="{{ url('checkout') }}" class="btn btn-primary w-100"> Thanh toán </a>
+                        <a href="" class="btn btn-primary w-100" wire:click.prevent="checkQtyBeforeCheckout()"> Thanh toán </a>
                     @else
                         <button type="button" class="btn btn-primary w-100" disabled> Thanh toán </button>
                     @endif

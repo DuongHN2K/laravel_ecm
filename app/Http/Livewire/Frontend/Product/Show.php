@@ -16,38 +16,37 @@ class Show extends Component
     {
         if(Auth::check())
         {
-            if (Wishlist::where('user_id', auth()->user()->id)->where('product_id', $productId)->exists()) 
-            {
-                $this->dispatchBrowserEvent('message', [
-                    'text' => 'Sản phẩm đã có trong mục ưa thích',
-                    'type' => 'warning',
-                    'status' => 409
-                ]);
-                return false;
-            } 
-            else 
-            {
-                Wishlist::create([
-                    'user_id' => auth()->user()->id,
-                    'product_id' => $productId
-                ]);
-                $this->emit('wishlistUpdated');
-                $this->dispatchBrowserEvent('message', [
-                    'text' => 'Đã thêm vào mục ưa thích',
-                    'type' => 'success',
-                    'status' => 200
-                ]);
-            }
+            Wishlist::create([
+                'user_id' => auth()->user()->id,
+                'product_id' => $productId
+            ]);
+            $this->emit('wishlistUpdated');
+            $this->dispatchBrowserEvent('message', [
+                'text' => 'Đã thêm vào mục ưa thích',
+                'type' => 'success',
+                'status' => 200
+            ]);
         }
         else
         {
             $this->dispatchBrowserEvent('message', [
                 'text' => 'Mời bạn vui lòng đăng nhập để tiếp tục',
-                'type' => 'info',
+                'type' => 'warning',
                 'status' => 401
             ]);
             return false;
         }
+    }
+
+    public function removeFromWishlist()
+    {
+        Wishlist::where('user_id', auth()->user()->id)->where('product_id', $this->product->id)->delete();
+        $this->emit('wishlistUpdated');
+        $this->dispatchBrowserEvent('message', [
+            'text' => 'Đã xóa sản phẩm khỏi mục ưa thích',
+            'type' => 'success',
+            'status' => 200
+        ]);
     }
 
     public function quantityDecrement()
@@ -60,10 +59,7 @@ class Show extends Component
 
     public function quantityIncrement()
     {
-        if ($this->qty < 10) 
-        {
-            $this->qty++;
-        }
+        $this->qty++;
     }
 
     public function mount($category, $product)
@@ -92,9 +88,11 @@ class Show extends Component
 
     public function render()
     {
+        $wlitem = Wishlist::where('user_id', auth()?->user()?->id)->where('product_id', $this->product->id);
         return view('livewire.frontend.product.show', [
             'category' => $this->category,
-            'product' => $this->product
+            'product' => $this->product,
+            'wlitem' => $wlitem,
         ]);
     }
 }

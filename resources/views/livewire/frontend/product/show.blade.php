@@ -74,7 +74,7 @@
                                 <span class="btn btn1" wire:click="quantityDecrement">
                                     <i class="fa fa-minus"></i>
                                 </span>
-                                <input type="text" wire:model="qty" readonly value="{{ $this->qty }}" class="input-quantity" />
+                                <input type="text" wire:model="qty" value="{{ $this->qty }}" class="input-quantity" />
                                 <span class="btn btn1" wire:click="quantityIncrement">
                                     <i class="fa fa-plus"></i>
                                 </span>
@@ -82,20 +82,36 @@
                         </div>
                         
                         <div class="mt-2">
+                            @if ($product->stock_quantity > 0)
                             <button 
                             type="button" class="btn btn1"
                             wire:click.prevent="addToCart({{ $product->id }}, '{{ $product->name }}', {{ $this->qty }}, {{ $product->price }})"
                             > 
                                 <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng 
                             </button>
-                            <button type="button" wire:click="addToWishlist({{ $product->id }})" class="btn btn1">
-                                <span wire:loading.remove wire:target="addToWishlist">
-                                    <i class="fa fa-heart"></i> Ưa thích 
-                                </span> 
-                                <span wire:loading wire:target="addToWishlist">
-                                    Đang thêm...
-                                </span>
+                            @else
+                            <button 
+                            type="button" class="btn btn1"
+                            disabled
+                            > 
+                                <i class="fa fa-shopping-cart"></i> Liên hệ 
                             </button>
+                            @endif
+                            
+
+                            @if ($wlitem->exists())
+                            <button type="button" wire:click="removeFromWishlist({{ $product->id }})" class="btn btn1">
+                                <span wire:target="removeFromWishlist">
+                                    <i class="bi bi-heart-fill"></i> Bỏ ưa thích
+                                </span> 
+                            </button>
+                            @else
+                            <button type="button" wire:click="addToWishlist({{ $product->id }})" class="btn btn1">
+                                <span wire:target="addToWishlist">
+                                    <i class="bi bi-heart"></i> Ưa thích 
+                                </span> 
+                            </button>
+                            @endif
                         </div>
                     </div>
                 </div>

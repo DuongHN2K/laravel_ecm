@@ -21,20 +21,9 @@ class CartShow extends Component
     public function quantityIncrement($rowId)
     {
         $product = Cart::get($rowId);
-        if ($product->qty < 10 && $product->qty < $product->model->stock_quantity) 
-        {
-            $qty = $product->qty + 1;
-            Cart::update($rowId, $qty);
-            $this->emit('cartUpdated');
-        }
-        else
-        {
-            $this->dispatchBrowserEvent('message', [
-                'text' => 'Sản phẩm không đủ số lượng',
-                'type' => 'warning',
-                'status' => 409
-            ]);
-        }
+        $qty = $product->qty + 1;
+        Cart::update($rowId, $qty);
+        $this->emit('cartUpdated');
     } 
 
     public function destroy($id)
@@ -57,6 +46,36 @@ class CartShow extends Component
             'type' => 'success',
             'status' => 200
         ]);
+    }
+
+    public function checkQtyBeforeCheckout()
+    {
+        $isReady = false;
+        foreach(Cart::content() as $cartitem)
+        {
+            if ($cartitem->qty > $cartitem->model->stock_quantity)
+            {
+                $isReady = false;
+                break;
+            }
+            else
+            {
+                $isReady = true;
+            }
+        }
+        
+        if ($isReady == true)
+        {
+            return redirect('checkout');
+        }
+        else
+        {
+            $this->dispatchBrowserEvent('message', [
+                'text' => 'Một trong các sản phẩm không đủ số lượng',
+                'type' => 'warning',
+                'status' => 200
+            ]);
+        }        
     }
 
     public function render()
