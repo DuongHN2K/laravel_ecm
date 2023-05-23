@@ -45,10 +45,10 @@ class ProductFormRequest extends FormRequest
                 'string'
             ],
             'thumbnail' => [
-                'nullable',
+                'required',
                 'mimes:jpeg,jpg,png'
             ],
-            'images' => 'nullable',
+            'images' => 'required',
             'images.*' => 'mimes:jpeg,jpg,png',
             'stock_quantity' => [
                 'required',
@@ -70,5 +70,19 @@ class ProductFormRequest extends FormRequest
             ]
         ];
         return $rules;
+    }
+
+    public function messages()
+    {
+        $messages = [
+            'name.required' => 'Trường tên không được để trống',
+            'slug.required' => 'Trường slug không được để trống',
+            'description.required' => 'Trường mô tả không được để trống',
+            'stock_quantity.required' => 'Trường số lượng không được để trống',
+            'price.required' => 'Trường giá không được để trống',
+            'thumbnail.required' => 'Ảnh đại diện là bắt buộc khi tạo sản phẩm mới',
+            'images.required' => 'Ảnh sản phẩm là bắt buộc khi tạo sản phẩm mới'
+        ];
+        return $messages;
     }
 }

@@ -10,25 +10,23 @@
         </div>
         
         <div class="card-body">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    @foreach ($errors->all() as $error)
-                        <div>{{ $error }}</div>
-                    @endforeach
-                </div>
-            @endif
-
             <form action="{{ url('admin/categories/'.$category->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
                     <label for="name" class="h6">Tên danh mục</label>
                     <input type="text" name="name" value="{{ $category->name }}" class="form-control" autocomplete="off">
+                    @error('name')
+                        <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="slug" class="h6">Slug</label>
                     <input type="text" name="slug" value="{{ $category->slug }}" class="form-control" autocomplete="off">
+                    @error('slug')
+                        <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                    @enderror
                 </div>
 
                 {{-- <div class="mb-3">

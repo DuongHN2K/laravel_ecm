@@ -39,7 +39,7 @@ class CategoryFormRequest extends FormRequest
                 'numeric'
             ],
             'thumbnail' => [
-                'nullable',
+                'required',
                 'mimes:jpeg,jpg,png'
             ],
             'navbar_status' => [
@@ -50,5 +50,14 @@ class CategoryFormRequest extends FormRequest
             ]
         ];
         return $rules;
+    }
+
+    public function messages()
+    {
+        $messages = [
+            'name.required' => 'Trường tên không được để trống',
+            'slug.required' => 'Trường slug không được để trống'
+        ];
+        return $messages;
     }
 }
