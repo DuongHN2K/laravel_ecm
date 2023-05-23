@@ -88,14 +88,19 @@
                             > 
                                 <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng 
                             </button>
+                            @if ($wlitem->exists())
+                            <button type="button" wire:click="removeFromWishlist({{ $product->id }})" class="btn btn1">
+                                <span wire:target="removeFromWishlist">
+                                    <i class="fa fa-heart"></i> Bỏ ưa thích
+                                </span> 
+                            </button>
+                            @else
                             <button type="button" wire:click="addToWishlist({{ $product->id }})" class="btn btn1">
-                                <span wire:loading.remove wire:target="addToWishlist">
+                                <span wire:target="addToWishlist">
                                     <i class="fa fa-heart"></i> Ưa thích 
                                 </span> 
-                                <span wire:loading wire:target="addToWishlist">
-                                    Đang thêm...
-                                </span>
                             </button>
+                            @endif
                         </div>
                     </div>
                 </div>
