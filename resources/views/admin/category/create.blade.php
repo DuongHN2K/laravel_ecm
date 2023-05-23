@@ -23,7 +23,7 @@
                 <div class="mb-3">
                     <label for="slug" class="h6">Slug</label>
                     <input type="text" name="slug" class="form-control" autocomplete="off" value="{{ old('slug') }}">
-                    @error('name')
+                    @error('slug')
                         <p class="text-danger text-sm mt-1">* {{$message}}</p>
                     @enderror
                 </div>
@@ -43,6 +43,9 @@
                 <div class="mb-3">
                     <label for="thumbnail" class="h6">Ảnh đại diện (Chọn một ảnh)</label>
                     <input type="file" name="thumbnail" class="form-control">
+                    @error('thumbnail')
+                        <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                    @enderror
                 </div>
                 
                 <h6>Đặt trạng thái</h6>

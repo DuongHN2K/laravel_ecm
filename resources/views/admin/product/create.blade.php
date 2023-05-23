@@ -86,6 +86,9 @@
                     @error('images')
                         <p class="text-danger text-sm mt-1">* {{$message}}</p>
                     @enderror
+                    @error('images.*')
+                        <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                    @enderror
                 </div>
 
                 {{-- <div class="mb-3">

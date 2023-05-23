@@ -21,6 +21,7 @@ class CategoryFormRequest extends FormRequest
      */
     public function rules()
     {
+        $imagerules = request()->isMethod('PUT') ? 'nullable|mimes:jpeg,jpg,png' : 'required|mimes:jpeg,jpg,png';
         $rules = [
             //
             'name' => [
@@ -38,10 +39,7 @@ class CategoryFormRequest extends FormRequest
                 'nullable',
                 'numeric'
             ],
-            'thumbnail' => [
-                'required',
-                'mimes:jpeg,jpg,png'
-            ],
+            'thumbnail' => $imagerules,
             'navbar_status' => [
                 'nullable'
             ],
@@ -56,7 +54,9 @@ class CategoryFormRequest extends FormRequest
     {
         $messages = [
             'name.required' => 'Trường tên không được để trống',
-            'slug.required' => 'Trường slug không được để trống'
+            'slug.required' => 'Trường slug không được để trống',
+            'thumbnail.required' => 'Ảnh đại diện là bắt buộc khi thêm danh mục mới',
+            'thumbnail.mimes' => 'Bạn phải chọn định dạng jpeg, jpg hoặc png'
         ];
         return $messages;
     }
