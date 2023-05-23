@@ -72,11 +72,19 @@
                                         </a>
                                     </div>
 
+                                    @if ($orderitem->status_message == 'đã hủy')
+                                    <div class="col-md-6">
+                                        <button class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa" disabled>
+                                            <i class="bi bi-pencil-square"></i>
+                                        </button>
+                                    </div>
+                                    @else
                                     <div class="col-md-6">
                                         <a href="{{ url('admin/orders/'.$orderitem->id.'/edit') }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
                                     </div>
+                                    @endif
                                 </div>
                             </td>
                         </tr>

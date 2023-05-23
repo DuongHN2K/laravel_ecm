@@ -26,9 +26,15 @@
                         <h6>ID đơn hàng: {{ $order->id }}</h6>
                         <h6>Ngày đặt: {{ $order->created_at->format('d-m-Y h:i') }}</h6>
                         <h6>Phương thức thanh toán: {{ $order->payment_type }}</h6>
+                        @if ($order->status_message == 'đã hủy')
+                        <h6 class="border p-2 text-danger">
+                            Trạng thái đơn hàng: <span class="text-uppercase">{{ $order->status_message }}</span>
+                        </h6>
+                        @else
                         <h6 class="border p-2 text-success">
                             Trạng thái đơn hàng: <span class="text-uppercase">{{ $order->status_message }}</span>
                         </h6>
+                        @endif
                     </div>
 
                     <div class="col-md-6">
@@ -85,9 +91,13 @@
                     </table>
 
                     <div class="col-md-6">
+                        @if ($order->status_message == 'đã hủy')
+                            <button class="btn btn-success" disabled> Sửa </button>
+                        @else
                         <a href="{{ url('admin/orders/'.$order->id.'/edit') }}" class="btn btn-success">
                             Sửa
                         </a>
+                        @endif
                         <a href="{{ url('admin/orders') }}" class="btn btn-secondary">Quay lại</a>
                     </div>
                 </div>
