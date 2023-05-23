@@ -55,6 +55,7 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th>STT</th>
                                 <th>ID sản phẩm</th>
                                 <th>Ảnh đại diện</th>
                                 <th>Tên sản phẩm</th>
@@ -66,10 +67,12 @@
                         <tbody>
                             @php
                                 $totalPrice = 0;
+                                $orderCount = 1;
                             @endphp
 
                             @foreach ($order->orderItems as $orderitem)
                             <tr>
+                                <td>{{ $orderCount++ }}</td>
                                 <td width="15%">{{ $orderitem->id }}</td>
                                 <td width="15%">
                                     <img src="{{ asset('images/products/thumbnail/' . $orderitem->product->thumbnail) }}" style="width: 70px; height: 70px" alt="">
@@ -84,7 +87,7 @@
                             </tr>
                             @endforeach
                             <tr>
-                                <td colspan="5" class="fw-bold">Tổng tiền đơn hàng:</td>
+                                <td colspan="6" class="fw-bold">Tổng tiền đơn hàng:</td>
                                 <td colspan="1" class="fw-bold">{{ number_format($totalPrice, 0, ",", ".") }} đ</td>
                             </tr>
                         </tbody>
