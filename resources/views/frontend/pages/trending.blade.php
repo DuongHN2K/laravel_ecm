@@ -15,7 +15,6 @@
                 <div class="col-md-3">
                     <div class="product-card">
                         <div class="product-card-img">
-                            <label class="stock bg-danger">Mới</label>
                             <img src="{{ asset('images/products/thumbnail/' . $proditem->thumbnail) }}" alt="thumbnail">
                         </div>
     

@@ -12,8 +12,9 @@ class OrderController extends Controller
     //
     public function index()
     {
+        $orderCount = 1;
         $orders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(10);
-        return view('frontend.orders.index', compact('orders'));
+        return view('frontend.orders.index', compact('orders', 'orderCount'));
     }
 
     public function show($orderId)

@@ -47,6 +47,7 @@
             <table class="table table-bordered" id="myTable">
                 <thead>
                     <tr>
+                        <th>STT</th>
                         <th>ID</th>
                         <th>Tên người dùng</th>
                         <th>PT thanh toán</th>
@@ -59,6 +60,7 @@
                 <tbody>
                     @foreach ($orders as $orderitem)
                         <tr>
+                            <td>{{ $orderCount++ }}</td>
                             <td>{{ $orderitem->id }}</td>
                             <td>{{ $orderitem->full_name }}</td>
                             <td>{{ $orderitem->payment_type}}</td>

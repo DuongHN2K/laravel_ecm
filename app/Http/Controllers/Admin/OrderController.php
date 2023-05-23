@@ -15,6 +15,8 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         //
+        $orderCount = 1;
+        
         $todayDate = Carbon::now()->format('Y-m-d');
 
         $orders = Order::
@@ -33,7 +35,7 @@ class OrderController extends Controller
             return $q->where('status_message', $request->status);
         })
         ->get();
-        return view('admin.order.index', compact('orders'));
+        return view('admin.order.index', compact('orders', 'orderCount'));
     }
 
     /**

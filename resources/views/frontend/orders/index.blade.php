@@ -15,6 +15,7 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th>STT</th>
                                     <th>ID</th>
                                     <th>Tên người dùng</th>
                                     <th>PT thanh toán</th>
@@ -26,6 +27,7 @@
                             <tbody>
                                 @forelse ($orders as $orderitem)
                                     <tr>
+                                        <td>{{ $orderCount++ }}</td>
                                         <td>{{ $orderitem->id }}</td>
                                         <td>{{ $orderitem->full_name }}</td>
                                         <td>{{ $orderitem->payment_type}}</td>

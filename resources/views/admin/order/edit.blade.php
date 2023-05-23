@@ -85,7 +85,6 @@
                         <div class="mb-3">
                             <label class="h6">Cập nhật trạng thái</label>
                             <select name="order_status" class="form-select">
-                                <option value="">Chọn trạng thái</option>
                                 <option value="đang xử lý" {{ $order->status_message == 'đang xử lý' ? 'selected':'' }}>Đang xử lý</option>
                                 <option value="đang đóng gói" {{ $order->status_message == 'đang đóng gói' ? 'selected':'' }}>Đang đóng gói</option>
                                 <option value="đang giao hàng" {{ $order->status_message == 'đang giao hàng' ? 'selected':'' }}>Đang giao hàng</option>
