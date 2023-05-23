@@ -39,7 +39,7 @@ class CategoryFormRequest extends FormRequest
                 'numeric'
             ],
             'thumbnail' => [
-                'nullable',
+                'required',
                 'mimes:jpeg,jpg,png'
             ],
             'navbar_status' => [

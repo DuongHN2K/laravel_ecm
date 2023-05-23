@@ -14,7 +14,7 @@
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="h6">Tên danh mục</label>
-                    <input type="text" name="name" class="form-control" autocomplete="off">
+                    <input type="text" name="name" class="form-control" value="{{ old('name') }}" autocomplete="off">
                     @error('name')
                         <p class="text-danger text-sm mt-1">* {{$message}}</p>
                     @enderror
@@ -22,8 +22,8 @@
 
                 <div class="mb-3">
                     <label for="slug" class="h6">Slug</label>
-                    <input type="text" name="slug" class="form-control" autocomplete="off">
-                    @error('slug')
+                    <input type="text" name="slug" class="form-control" autocomplete="off" value="{{ old('slug') }}">
+                    @error('name')
                         <p class="text-danger text-sm mt-1">* {{$message}}</p>
                     @enderror
                 </div>
@@ -42,7 +42,7 @@
 
                 <div class="mb-3">
                     <label for="thumbnail" class="h6">Ảnh đại diện (Chọn một ảnh)</label>
-                    <input type="file" required name="thumbnail" class="form-control">
+                    <input type="file" name="thumbnail" class="form-control">
                 </div>
                 
                 <h6>Đặt trạng thái</h6>
