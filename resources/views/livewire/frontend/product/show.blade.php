@@ -91,13 +91,13 @@
                             @if ($wlitem->exists())
                             <button type="button" wire:click="removeFromWishlist({{ $product->id }})" class="btn btn1">
                                 <span wire:target="removeFromWishlist">
-                                    <i class="fa fa-heart"></i> Bỏ ưa thích
+                                    <i class="bi bi-heart-fill"></i> Bỏ ưa thích
                                 </span> 
                             </button>
                             @else
                             <button type="button" wire:click="addToWishlist({{ $product->id }})" class="btn btn1">
                                 <span wire:target="addToWishlist">
-                                    <i class="fa fa-heart"></i> Ưa thích 
+                                    <i class="bi bi-heart"></i> Ưa thích 
                                 </span> 
                             </button>
                             @endif
