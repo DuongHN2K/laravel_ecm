@@ -21,6 +21,7 @@ class ProductFormRequest extends FormRequest
      */
     public function rules(): array
     {
+        $imagerules = request()->isMethod('PUT') ? 'nullable' : 'required';
         $rules = [
             'category' => [
                 'required',
@@ -45,10 +46,10 @@ class ProductFormRequest extends FormRequest
                 'string'
             ],
             'thumbnail' => [
-                'required',
+                $imagerules,
                 'mimes:jpeg,jpg,png'
             ],
-            'images' => 'required',
+            'images' => $imagerules,
             'images.*' => 'mimes:jpeg,jpg,png',
             'stock_quantity' => [
                 'required',
@@ -81,7 +82,9 @@ class ProductFormRequest extends FormRequest
             'stock_quantity.required' => 'Trường số lượng không được để trống',
             'price.required' => 'Trường giá không được để trống',
             'thumbnail.required' => 'Ảnh đại diện là bắt buộc khi tạo sản phẩm mới',
-            'images.required' => 'Ảnh sản phẩm là bắt buộc khi tạo sản phẩm mới'
+            'thumbnail.mimes' => 'Bạn phải chọn định dạng jpeg, jpg, hoặc png',
+            'images.required' => 'Ảnh sản phẩm là bắt buộc khi tạo sản phẩm mới',
+            'images.*.mimes' => 'Bạn phải chọn định dạng jpeg, jpg hoặc png'
         ];
         return $messages;
     }
