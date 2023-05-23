@@ -10,19 +10,14 @@
         </div>
         
         <div class="card-body">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    @foreach ($errors->all() as $error)
-                        <div>{{ $error }}</div>
-                    @endforeach
-                </div>
-            @endif
-
             <form action="{{ url('admin/brands') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="h6">Tên thương hiệu</label>
                     <input type="text" name="name" class="form-control" autocomplete="off">
+                    @error('name')
+                        <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                    @enderror
                 </div>
                 
                 <h6>Đặt trạng thái</h6>

@@ -71,4 +71,16 @@ class ProductFormRequest extends FormRequest
         ];
         return $rules;
     }
+
+    public function messages()
+    {
+        $messages = [
+            'name.required' => 'Trường tên không được để trống',
+            'slug.required' => 'Trường slug không được để trống',
+            'description.required' => 'Trường mô tả không được để trống',
+            'stock_quantity.required' => 'Trường số lượng không được để trống',
+            'price.required' => 'Trường giá không được để trống'
+        ];
+        return $messages;
+    }
 }

@@ -51,4 +51,13 @@ class CategoryFormRequest extends FormRequest
         ];
         return $rules;
     }
+
+    public function messages()
+    {
+        $messages = [
+            'name.required' => 'Trường tên không được để trống',
+            'slug.required' => 'Trường slug không được để trống'
+        ];
+        return $messages;
+    }
 }

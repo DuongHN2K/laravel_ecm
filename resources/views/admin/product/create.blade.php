@@ -12,24 +12,22 @@
         </div>
 
         <div class="card-body">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    @foreach ($errors->all() as $error)
-                        <div>{{ $error }}</div>
-                    @endforeach
-                </div>
-            @endif
-
             <form action="{{ url('admin/products') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="h6">Tên sản phẩm</label>
                     <input type="text" name="name" class="form-control" autocomplete="off">
+                    @error('name')
+                        <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="slug" class="h6">Slug</label>
                     <input type="text" name="slug" class="form-control" autocomplete="off">
+                    @error('slug')
+                        <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
@@ -53,16 +51,25 @@
                 <div class="mb-3">
                     <label for="description" class="h6">Mô tả</label>
                     <textarea rows="5" name="description" id="mySummernote" class="form-control" autocomplete="off"></textarea>
+                    @error('description')
+                        <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="price" class="h6">Giá bán</label>
                     <input type="text" name="price" class="form-control">
+                    @error('price')
+                        <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="stock_quantity" class="h6">Số lượng</label>
                     <input type="number" name="stock_quantity" class="form-control">
+                    @error('stock_quantity')
+                        <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
