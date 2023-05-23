@@ -90,7 +90,6 @@
                                 <option value="đang đóng gói" {{ $order->status_message == 'đang đóng gói' ? 'selected':'' }}>Đang đóng gói</option>
                                 <option value="đang giao hàng" {{ $order->status_message == 'đang giao hàng' ? 'selected':'' }}>Đang giao hàng</option>
                                 <option value="đã giao hàng" {{ $order->status_message == 'đã giao hàng' ? 'selected':'' }}>Đã giao hàng</option>
-                                <option value="đã hủy" {{ $order->status_message == 'đã hủy' ? 'selected':'' }}>Đã hủy</option>
                             </select>
                         </div>
                         

@@ -7,6 +7,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                @if (session('message'))
+                    <div x-data="{show: true}" x-init="setTimeout(() => show = false, 2500)" x-show="show" class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                @endif
+
                 <div class="shadow bg-white p-3">
                     <h4 class="text-primary">
                         <i class="fa fa-shopping-cart text-dark"></i> Chi tiết đơn hàng
@@ -21,9 +27,15 @@
                             <h6>ID đơn hàng: {{ $order->id }}</h6>
                             <h6>Ngày đặt: {{ $order->created_at->format('d-m-Y h:i') }}</h6>
                             <h6>Phương thức thanh toán: {{ $order->payment_type }}</h6>
+                            @if ($order->status_message == 'đã hủy')
+                            <h6 class="border p-2 text-danger">
+                                Trạng thái đơn hàng: <span class="text-uppercase">{{ $order->status_message }}</span>
+                            </h6>
+                            @else
                             <h6 class="border p-2 text-success">
                                 Trạng thái đơn hàng: <span class="text-uppercase">{{ $order->status_message }}</span>
                             </h6>
+                            @endif
                         </div>
 
                         <div class="col-md-6">
@@ -78,6 +90,15 @@
                                 </tr>
                             </tbody>
                         </table>
+                        @if ($order->status_message == 'đã hủy')
+                        <button disabled class="btn btn-danger btn-sm float-end">Hủy đơn hàng</button>
+                        @else
+                        <form action="{{ url('orders/'.$order->id) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" class="btn btn-danger btn-sm float-end">Hủy đơn hàng</button>
+                        </form>
+                        @endif
                     </div>
                 </div>
             </div>

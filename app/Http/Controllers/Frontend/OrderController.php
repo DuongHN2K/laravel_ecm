@@ -28,4 +28,17 @@ class OrderController extends Controller
             return redirect()->back()->with('message', 'Không tìm thấy đơn hàng nào');
         }
     }
+
+    public function cancelOrder($orderId)
+    {
+        $order = Order::where('user_id', Auth::user()->id)->where('id', $orderId)->first();
+        $order->status_message = 'đã hủy';
+        foreach ($order->orderItems as $orderitem) 
+        {
+            $orderitem->product->where('id', $orderitem->product_id)->increment('stock_quantity', $orderitem->quantity);
+            $orderitem->update();
+        }
+        $order->update();
+        return redirect()->back()->with('message', 'Đã hủy đơn hàng thành công');
+    }
 }
