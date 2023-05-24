@@ -94,7 +94,7 @@
                     </table>
 
                     <div class="col-md-6">
-                        @if ($order->status_message == 'đã hủy')
+                        @if ($order->status_message == 'đã hủy' || $order->status_message == 'đã giao hàng')
                             <button class="btn btn-success" disabled> Sửa </button>
                         @else
                         <a href="{{ url('admin/orders/'.$order->id.'/edit') }}" class="btn btn-success">

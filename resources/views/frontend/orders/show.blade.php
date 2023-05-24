@@ -90,7 +90,9 @@
                                 </tr>
                             </tbody>
                         </table>
-                        @if ($order->status_message == 'đã hủy')
+
+                        {{-- Nếu ở ba trạng thái sau thì user sẽ không thể hủy đơn hàng nữa --}}
+                        @if ($order->status_message == 'đã hủy' || $order->status_message == 'đã giao hàng' || $order->status_message == 'đang giao hàng')
                         <button disabled class="btn btn-danger btn-sm float-end">Hủy đơn hàng</button>
                         @else
                         <form action="{{ url('orders/'.$order->id) }}" method="POST">

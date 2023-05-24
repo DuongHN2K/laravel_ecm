@@ -74,7 +74,7 @@
                                         </a>
                                     </div>
 
-                                    @if ($orderitem->status_message == 'đã hủy')
+                                    @if ($orderitem->status_message == 'đã hủy' || $orderitem->status_message == 'đã giao hàng')
                                     <div class="col-md-6">
                                         <button class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Sửa" disabled>
                                             <i class="bi bi-pencil-square"></i>

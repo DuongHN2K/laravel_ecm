@@ -23,6 +23,21 @@ class CheckoutShow extends Component
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'fullname.required' => 'Trường tên là bắt buộc',
+            'email.required' => 'Địa chỉ email là bắt buộc',
+            'email.email' => 'Địa chỉ email không hợp lệ',
+            'phone.required' => 'Số điện thoại là bắt buộc',
+            'phone.min' => 'Số điện thoại không hợp lệ',
+            'phone.max' => 'Số điện thoại không hợp lệ',
+            'postalcode.required' => 'Trường mã bưu điện là bắt buộc',
+            'postalcode.max' => 'Mã bưu điện không hợp lệ',
+            'address.required' => 'Trường địa chỉ là bắt buộc',
+        ];
+    }
+
     public function placeOrder()
     {
         $this->validate();
