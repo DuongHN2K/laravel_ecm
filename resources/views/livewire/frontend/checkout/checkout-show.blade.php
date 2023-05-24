@@ -75,22 +75,37 @@
                             <div class="col-md-6 mb-3">
                                 <label>Họ tên</label>
                                 <input type="text" wire:model.defer="fullname" class="form-control" placeholder="Nhập họ tên" required/>
+                                @error('fullname')
+                                    <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                                @enderror
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label>Số điện thoại</label>
                                 <input type="number" wire:model.defer="phone" class="form-control" placeholder="Nhập số điện thoại" required/>
+                                @error('phone')
+                                    <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                                @enderror
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label>Email</label>
                                 <input type="email" wire:model.defer="email" class="form-control" placeholder="Nhập Email" required/>
+                                @error('email')
+                                    <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                                @enderror
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label>Mã bưu điện</label>
                                 <input type="number" wire:model.defer="postalcode" class="form-control" placeholder="Nhập mã bưu điện" required/>
+                                @error('postalcode')
+                                    <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                                @enderror
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label>Địa chỉ</label>
                                 <textarea wire:model.defer="address" class="form-control" rows="2" required></textarea>
+                                @error('address')
+                                    <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                                @enderror
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label> Chọn phương thức thanh toán: </label>
