@@ -21,16 +21,6 @@
                     </div>
                 @endif
 
-                @if ($errors->any())
-                    <ul class="alert alert-danger">
-                        @foreach ($errors->all() as $error)
-                            <li class="text-danger">
-                                {{ $error }}
-                            </li>
-                        @endforeach
-                    </ul>
-                @endif
-
                 <div class="card shadow">
                     <div class="card-body">
                         <form action="{{ url('profile') }}" method="POST">
@@ -40,6 +30,9 @@
                                     <div class="mb-3">
                                         <label>Tên người dùng</label>
                                         <input type="text" name="username" value="{{ Auth::user()->name }}" class="form-control" />
+                                        @error('username')
+                                            <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -54,6 +47,9 @@
                                     <div class="mb-3">
                                         <label>Số điện thoại</label>
                                         <input type="text" name="phone" value="{{ Auth::user()->phone_number }}" class="form-control" />
+                                        @error('phone')
+                                            <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -61,6 +57,9 @@
                                     <div class="mb-3">
                                         <label>Mã bưu điện</label>
                                         <input type="text" name="postal_code" value="{{ Auth::user()->userDetail->postal_code ?? '' }}" class="form-control" />
+                                        @error('postal_code')
+                                            <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                                        @enderror
                                     </div>
                                 </div>
                                 
@@ -68,6 +67,9 @@
                                     <div class="mb-3">
                                         <label>Địa chỉ</label>
                                         <textarea name="address" rows="3" class="form-control">{{ Auth::user()->userDetail->address ?? '' }}</textarea>
+                                        @error('address')
+                                            <p class="text-danger text-sm mt-1">* {{$message}}</p>
+                                        @enderror
                                     </div>
                                 </div>
 

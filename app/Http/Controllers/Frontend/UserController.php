@@ -23,6 +23,14 @@ class UserController extends Controller
             'phone' => ['required', 'digits:10'],
             'postal_code' => ['required', 'max:6'],
             'address' => ['required', 'string', 'max:499'],
+        ],
+        [
+            'username.required' => 'Trường tên không được để trống',
+            'phone.required' => 'Số điện thoại không được để trống',
+            'phone.digits' => 'Vui lòng nhập số điện thoại hợp lệ',
+            'postal_code.max' => 'Mã bưu điện không hợp lệ',
+            'postal_code.required' => 'Mã bưu điện không được để trống',
+            'address.required' => 'Trường địa chỉ không được để trống'
         ]);
         $user = User::findOrFail(Auth::user()->id);
         $user->update([
